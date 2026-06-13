@@ -9,11 +9,11 @@
   #become: true
   #gathering: smart #ERROR! 'gathering' is not a valid attribute for a Play
 #
-  gather_facts: True
+  #gather_facts: True
   ##ignore_errors: True
   ##ignore_unreachable: true
 #
-  #become_method: runas 
+  #become_method: runas  
   #become_user: adminqit
 
   vars:
