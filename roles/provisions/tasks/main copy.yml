@@ -53,10 +53,10 @@
 - name: Job 02 | Add sudo rights for deployment user.
   lineinfile:
     dest: /etc/sudoers
-    regexp: '^ibrahim'
-    line: 'ibrahim ALL=(ALL) NOPASSWD: ALL'
+    regexp: "^ibrahim"
+    line: "ibrahim ALL=(ALL) NOPASSWD: ALL"
     state: present
-    validate: 'visudo -cf %s'
+    validate: "visudo -cf %s"
   when: ansible_os_family == 'Debian'
 #
 # echo "username  ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/username
@@ -69,7 +69,6 @@
     runas: root
     commands: ALL
 #
-
 # - name: Job-1003 | Copy deployment user's home files in place.
 #   copy:
 #     src: "files/home/ibrahim"
@@ -78,7 +77,6 @@
 #     group: ibrahim
 #     mode: 0644
 #   when: prvs_copy_home
-
 # - name: Job-1004 | Update root password.
 #   user:
 #     name: root
@@ -100,7 +98,8 @@
     create_home: True
     #local: "{{item.local}}"
     state: present
-  loop: "{{ users }}"
+  loop:
+    "{{ users }}"
     #"{{ lookup('vars', 'somevar_' ~ other_var) }}"
   #tags: test
 #
@@ -113,7 +112,7 @@
   loop: "{{ users }}"
   #when: "{{item.host}}" == 'all' or {{item.host}} == ansible_hostname
   tags:
-    - #test
+    -  #test
 #
 - name: Job 05 | creating LOCAL users and groups
   user:
@@ -130,11 +129,12 @@
     #local: "{{item.local}}"
     state: present
   when: addLocalUser
-  loop: "{{ localusers }}"
+  loop:
+    "{{ localusers }}"
     #"{{ lookup('vars', 'somevar_' ~ other_var) }}"
-  tags: 
+  tags:
     - localusers
-    - #test
+    -  #test
 #
 # the 'item.key' must match the username for it to work
 - name: Job 06 | add public keys to LOCAL users's authorized_key
@@ -156,7 +156,7 @@
   when: instl_docker_pckg and instl_gthb_ky
   tags:
     - github_key
-    #- test  
+    #- test
 #
 #
 - name: Job 99 | Check if reboot required
@@ -166,16 +166,15 @@
 
 - name: Job 99.01 | Reboot if required
   reboot:
-    reboot_timeout: 60 
-    connect_timeout:  
-    test_command: whoami 
-    msg: "Reboot initiated by Ansible" 
+    reboot_timeout: 60
+    connect_timeout:
+    test_command: whoami
+    msg: "Reboot initiated by Ansible"
   when: reboot_required_file.stat.exists == true
 #
 #
 # openssl rsa -in mobile.key -pubout > mobile.pub
 # ssh-keygen -y -f mobile.key > mobile.pub
-
 
 # reboot:
 #   pre_reboot_delay: 0 # not required. Seconds to wait before reboot. Passed as a parameter to the reboot command. On Linux, macOS and OpenBSD, this is converted to minutes and rounded down. If less than 60, it will be set to 0. On Solaris and FreeBSD, this will be seconds.

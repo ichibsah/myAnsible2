@@ -7,7 +7,7 @@
 # https://docs.ansible.com/ansible/latest/collections/community/docker/docker_compose_module.html
 - name: Job 00 | Deploy semaphore
   community.docker.docker_compose:
-  #community.docker.docker_compose_v2:
+    #community.docker.docker_compose_v2:
     #working_dir: "/opt/docker/semaphore-3002/"
     project_name: semaphore
     definition:
@@ -24,7 +24,7 @@
             - MYSQL_RANDOM_ROOT_PASSWORD=yes
             - MYSQL_DATABASE=semaphore
             - MYSQL_USER=semaphore
-            - MYSQL_PASSWORD={{ansible_become_pass}}  # change!
+            - MYSQL_PASSWORD={{ansible_become_pass}} # change!
           restart: always
         semaphore:
           container_name: ansiblesemaphore
@@ -34,18 +34,18 @@
             - 3002:3000
           environment:
             - SEMAPHORE_DB_USER=semaphore
-            - SEMAPHORE_DB_PASS={{ansible_become_pass}}  # change!
+            - SEMAPHORE_DB_PASS={{ansible_become_pass}} # change!
             - SEMAPHORE_DB_HOST=mysql
             - SEMAPHORE_DB_PORT=3306
             - SEMAPHORE_DB_DIALECT=mysql
             - SEMAPHORE_DB=semaphore
             - SEMAPHORE_PLAYBOOK_PATH=/tmp/semaphore/
-            - SEMAPHORE_ADMIN_PASSWORD={{ansible_become_pass}}  # change!
+            - SEMAPHORE_ADMIN_PASSWORD={{ansible_become_pass}} # change!
             - SEMAPHORE_ADMIN_NAME=admin
             - SEMAPHORE_ADMIN_EMAIL=admin@localhost
             - SEMAPHORE_ADMIN=admin
-            - SEMAPHORE_ACCESS_KEY_ENCRYPTION=  # add to your access key encryption !
-            - ANSIBLE_HOST_KEY_CHECKING=false  # (optional) change to true if you want to enable host key checking
+            - SEMAPHORE_ACCESS_KEY_ENCRYPTION= # add to your access key encryption !
+            - ANSIBLE_HOST_KEY_CHECKING=false # (optional) change to true if you want to enable host key checking
           volumes:
             - /opt/docker/semaphore-3002/inventory:/inventory:ro
             - /opt/docker/semaphore-3002/authorized-keys:/authorized-keys:ro
@@ -58,7 +58,7 @@
   register: output
   tags:
     - assert
-    - #test
+    -  #test
   #
 - name: Verify that semaphore and db services are running
   ansible.builtin.assert:
@@ -68,7 +68,7 @@
   when: instl_docker_pckg and dckr_dpl_semaphore
   tags:
     - assert
-    - #test
+    -  #test
 
 # # https://mariushosting.com/docker/
 

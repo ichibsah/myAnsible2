@@ -21,8 +21,6 @@
     restart_policy: always
   when: instl_docker_pckg and dckr_dpl_npxymgmt
   #tags: test
-
-
 # http://10.3.0.137:8081
 # #touch $(pwd)/docker/npm/config.json
 # docker run -d --name=nginx_proxy_manager \
@@ -37,7 +35,6 @@
 # -v $(pwd)/docker/npm/letsencrypt:/etc/letsencrypt \
 # --restart always \
 # jc21/nginx-proxy-manager
-
 
 # Email:    admin@example.com
 # Password: changeme

@@ -8,7 +8,7 @@
     #
     project_name: Invidious
     definition:
-      version: '3.9'
+      version: "3.9"
       services:
         invidious-db:
           image: postgres
@@ -68,7 +68,7 @@
   when: instl_docker_pckg and dckr_dpl_invdus
   tags:
     - assert
-    - #test           
+    -  #test
 #
 #
 #         youtubedl:

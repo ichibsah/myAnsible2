@@ -3,20 +3,20 @@
   ansible.builtin.import_tasks:
     file: misc.yml
   #when: apt_host_pckg_lst | contains bind9
-  tags: 
-    - #test
+  tags:
+    -  #test
 #
 # - name: Job 02 | import task myiptables
 #   ansible.builtin.import_tasks:
 #     file: myiptable.yml
 #   #when: apt_host_pckg_lst | contains bind9
-#   tags: 
+#   tags:
 #     - #test
 #
 - name: Job 03 | import task meryem
   ansible.builtin.import_tasks:
     file: meryem.yml
   #when: apt_host_pckg_lst | contains bind9
-  tags: 
+  tags:
     - meryem
-    - #test
+    -  #test

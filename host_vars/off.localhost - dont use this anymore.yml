@@ -9,23 +9,23 @@ hostname_additional_hosts:
     hostname: virthost01.skyline.lan
     hostname_short: virthost01
   #
-apt_host_packages_list:                   # Install Host Specific Packages
-- rsync
-- pip
+apt_host_packages_list: # Install Host Specific Packages
+  - rsync
+  - pip
 #
-apt_remove_package_lists:                 # Remove APT package lists
+apt_remove_package_lists: # Remove APT package lists
 #
-pip_install_package_lists:                # Install packages using PIP
-- ansible
-- passlib
+pip_install_package_lists: # Install packages using PIP
+  - ansible
+  - passlib
 #
-ansible_become_pass: '{{ localhost_become_pass }}'
+ansible_become_pass: "{{ localhost_become_pass }}"
 #
-prvs_copy_home: no              # Copy default user's home files in place
+prvs_copy_home: no # Copy default user's home files in place
 #
-dkr_copy_def_files: no          # Copy default docker files to target server
+dkr_copy_def_files: no # Copy default docker files to target server
 #
-apt_install_utilities_base: yes           # Install utilities packages default settings
+apt_install_utilities_base: yes # Install utilities packages default settings
 
 # 127.0.0.1       localhost
 # 127.0.1.1       virthost01.skyline.lan  virthost01
@@ -35,5 +35,5 @@ apt_install_utilities_base: yes           # Install utilities packages default s
 # ff02::1 ip6-allnodes
 # ff02::2 ip6-allrouters
 #
-#virthost01.skyline.lan: 
+#virthost01.skyline.lan:
 ansible_connection: local # this will overwrite any other type of connections. its needed here.

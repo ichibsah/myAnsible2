@@ -58,13 +58,13 @@
   copy:
     dest: /etc/docker/daemon.json
     content: "{{ docker_daemon_config | to_nice_json }}"
-    mode: '0644'
+    mode: "0644"
   notify: Restart Docker
 
 - name: Ensure docker socket permissions
   file:
     path: /var/run/docker.sock
-    mode: '0660'
+    mode: "0660"
     group: docker
 
 # validate
@@ -99,7 +99,6 @@
 
 - name: Docker pre-flight check block
   block:
-
     - name: Check docker socket exists
       stat:
         path: /var/run/docker.sock

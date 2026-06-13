@@ -10,7 +10,6 @@
   become_user: root
   roles:
     - dockers
-
 # - name: DOCEKERS | Initialisation - LOCALHOST
 #   hosts: local
 #   ignore_errors: true

@@ -55,7 +55,6 @@ dependencies: []
 #
 # roles/url_monitor/meta/main.yml
 
-
 #   role_name: url_monitor
 #   author: my name
 #   description: "Hourly URL monitor with daily logs and Teams alerts on non-200."

@@ -9,7 +9,7 @@
     #
     project_name: whats-up-docker
     definition:
-      version: '3.9'
+      version: "3.9"
       services:
         whatsupdocker:
           image: fmartinou/whats-up-docker
@@ -26,21 +26,21 @@
           ports:
             - 3555:3000
           environment:
-          - WUD_TRIGGER_SMTP_GMAIL_HOST=10.1.0.254
-          - WUD_TRIGGER_SMTP_GMAIL_PORT=465
-          - WUD_TRIGGER_SMTP_GMAIL_USER=Your-own-gmail-address
-          - WUD_TRIGGER_SMTP_GMAIL_PASS=Your-own-app-password
-          - WUD_TRIGGER_SMTP_GMAIL_FROM=Your-own-gmail-address
-          - WUD_TRIGGER_SMTP_GMAIL_TO=Your-own-gmail-address
-          - WUD_TRIGGER_SMTP_GMAIL_TLS_ENABLED=true
-          - WUD_TRIGGER_SMTP_GMAIL_SIMPLETITLE=Container $${name} Update Available
-          - WUD_TRIGGER_SMTP_GMAIL_SIMPLEBODY=Container $${name} Can Be Updated From Version $${local} To Version $${remote}
+            - WUD_TRIGGER_SMTP_GMAIL_HOST=10.1.0.254
+            - WUD_TRIGGER_SMTP_GMAIL_PORT=465
+            - WUD_TRIGGER_SMTP_GMAIL_USER=Your-own-gmail-address
+            - WUD_TRIGGER_SMTP_GMAIL_PASS=Your-own-app-password
+            - WUD_TRIGGER_SMTP_GMAIL_FROM=Your-own-gmail-address
+            - WUD_TRIGGER_SMTP_GMAIL_TO=Your-own-gmail-address
+            - WUD_TRIGGER_SMTP_GMAIL_TLS_ENABLED=true
+            - WUD_TRIGGER_SMTP_GMAIL_SIMPLETITLE=Container $${name} Update Available
+            - WUD_TRIGGER_SMTP_GMAIL_SIMPLEBODY=Container $${name} Can Be Updated From Version $${local} To Version $${remote}
 
   when: instl_docker_pckg and dckr_dpl_wud
   tags:
     - assert
-    - #test           
+    -  #test
 #
 #
-#  
+#
 # https://mariushosting.com/how-to-install-wud-on-your-synology-nas/

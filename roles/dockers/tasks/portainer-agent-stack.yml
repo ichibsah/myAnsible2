@@ -1,4 +1,4 @@
-version: '3.2'
+version: "3.2"
 
 services:
   agent:
@@ -37,6 +37,5 @@ networks:
 
 volumes:
   portainer_data:
-
 
 # docker stack deploy -c portainer-agent-stack.yml portainer

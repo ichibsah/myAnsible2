@@ -9,7 +9,7 @@
     #
     project_name: webpdf
     definition:
-      version: '3.9'
+      version: "3.9"
       services:
         webpdf:
           image: zpex/web-pdf-toolbox
@@ -24,15 +24,14 @@
           environment:
             - TZ=Europe/Berlin
             - PUID=${UID}
-            - PGID=${GID}          
+            - PGID=${GID}
   when: instl_docker_pckg and dckr_dpl_webpdf
   tags:
-    - #test              
+    -  #test
 #
 #
-#  
+#
 # https://mariushosting.com/how-to-install-web-pdf-on-your-synology-nas/
-
 
 # docker run -d --name=webpdf \
 # -p 25568:80 \

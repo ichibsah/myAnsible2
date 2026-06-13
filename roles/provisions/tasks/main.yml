@@ -41,5 +41,5 @@
   when: instl_docker_pckg and instl_gthb_ky
   tags:
     - github_key
-    #- test  
+    #- test
 #

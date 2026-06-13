@@ -65,7 +65,7 @@
   community.docker.docker_compose:
     project_name: "{{ prg_name }}"
     definition:
-      version: '3.9'
+      version: "3.9"
       services:
         hbbs:
           container_name: hbbs
@@ -103,7 +103,6 @@
     success_msg: "RustDesk containers are running successfully."
   tags:
     - assert
-
 ################################################################################
 # Notes:
 #

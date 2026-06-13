@@ -8,7 +8,7 @@
     #
     project_name: Tubesync
     definition:
-      version: '3.9'
+      version: "3.9"
       services:
         tubesync:
           hostname: tubesync.skyline.lan
@@ -30,17 +30,17 @@
   register: output
   tags:
     - assert
-    - #test
+    -  #test
 #
 - name: Verify that tubesync is running
   ansible.builtin.assert:
     that:
       - "output.services.tubesync.Tubesync_con.state.running"
-      - #"output.services.mysql.ansiblemysql.state.running"
+      -  #"output.services.mysql.ansiblemysql.state.running"
   when: instl_docker_pckg and dckr_dpl_tubesync
   tags:
     - assert
-    - #test
+    -  #test
 
 # # https://mariushosting.com/how-to-install-tubesync-on-your-synology-nas/
 

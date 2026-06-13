@@ -11,7 +11,6 @@
   roles:
     - provisions
     - ssh
-
 # - name: PROVISIONS | First time Initialisation - LOCALHOST
 #   hosts: local
 #   ignore_errors: true

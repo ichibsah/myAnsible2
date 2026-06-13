@@ -18,7 +18,6 @@
     #- provisions
     #- ssh
     - proxmox
-
 # - name: PROVISIONS | First time Initialisation - LOCALHOST
 #   hosts: local
 #   ignore_errors: true

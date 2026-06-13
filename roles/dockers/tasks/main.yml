@@ -7,7 +7,7 @@
     owner: ibrahim
     group: ibrahim
     mode: 0744
-  when: ansible_os_family == 'Debian' and dkr_copy_def_files # ansible_hostname != 'virthost01' or ansible_hostname != '4a999ff' 
+  when: ansible_os_family == 'Debian' and dkr_copy_def_files # ansible_hostname != 'virthost01' or ansible_hostname != '4a999ff'
 
 - name: Job 02 | Copy extended docker files to target host
   copy:
@@ -27,10 +27,10 @@
     group: ibrahim
     mode: 0744
   #with_items:
-    #"{{ dckr_fldr_lst }}"
+  #"{{ dckr_fldr_lst }}"
   #when: dckr_fldr_lst.0 is defined
-  tags: 
-    - #test
+  tags:
+    -  #test
 #
 #TODO: find a way to imporve the copy - shut it down and use docker deploy
 - name: Job 04 | Copy docker folder(s) to target host that matches "ansible_hostname"
@@ -63,7 +63,7 @@
   when: instl_docker_pckg and dckr_dpl_semaphore
   tags:
     - semaphore
-    #- test  
+    #- test
 #
 - name: Job 12 | import task 8081 nginx proxy manager
   ansible.builtin.import_tasks:
@@ -83,8 +83,8 @@
     file: 8080-pihole.yml
   when: instl_docker_pckg and dckr_dpl_pihole
   tags:
-  - pihole
-  #- test 
+    - pihole
+  #- test
 #
 - name: Job 15 | import task gravity
   ansible.builtin.import_tasks:
@@ -106,8 +106,8 @@
     file: 32400-plex-gh.yml
   when: instl_docker_pckg and dckr_dpl_plex_gh
   tags:
-  - plex
-  #- test  
+    - plex
+  #- test
 #
 - name: Job 18 | import task tubesync
   ansible.builtin.import_tasks:
@@ -152,7 +152,7 @@
   when: instl_docker_pckg and dckr_dpl_emby_gh
   tags:
     - emby
-    - #test  
+    -  #test
 #
 - name: Job 24 | import task invidious
   ansible.builtin.import_tasks:
@@ -190,7 +190,7 @@
   when: instl_docker_pckg and dckr_dpl_meryem
   tags:
     - meryem
-    - #test  
+    -  #test
 #
 - name: Job 31 | import task anasse
   ansible.builtin.import_tasks:
@@ -198,7 +198,7 @@
   when: instl_docker_pckg and dckr_dpl_anasse
   tags:
     - anasse
-    - #test  
+    -  #test
 #
 - name: Job 32 | import task opendot
   ansible.builtin.import_tasks:
@@ -206,7 +206,7 @@
   when: instl_docker_pckg and dckr_dpl_opendot
   tags:
     - opendot
-    - #test  
+    -  #test
 #
 - name: Job 32 | import task opendot
   ansible.builtin.import_tasks:
@@ -214,7 +214,7 @@
   when: instl_docker_pckg and dckr_dpl_opendot
   tags:
     - opendot
-    - #test  
+    -  #test
 #
 - name: Job 33 | import task Skylinewebservice
   ansible.builtin.import_tasks:
@@ -222,7 +222,7 @@
   when: instl_docker_pckg and dckr_dpl_skyline
   tags:
     - skyline
-    - #test  
+    -  #test
 #
 - name: Job 33-1 | import task tSkylinewebservice
   ansible.builtin.import_tasks:
@@ -230,7 +230,7 @@
   when: instl_docker_pckg and dckr_dpl_skyline
   tags:
     - skyline
-    - #test  
+    -  #test
 #
 - name: Job 34 | import task Skylinewebservice
   ansible.builtin.import_tasks:
@@ -238,7 +238,7 @@
   when: instl_docker_pckg and dckr_dpl_reddot_africa
   tags:
     - reddot_africa
-    - #test
+    -  #test
 #
 - name: Job 34 | import task Skylinewebservice
   ansible.builtin.import_tasks:
@@ -246,7 +246,7 @@
   when: instl_docker_pckg and dckr_dpl_blingbody
   tags:
     - blingbody
-    - #test
+    -  #test
 #
 - name: Job 35 | import task webcheck
   ansible.builtin.import_tasks:
@@ -270,7 +270,7 @@
   when: instl_docker_pckg and dckr_dpl_activ
   tags:
     - activ
-    - #test
+    -  #test
 #
 - name: Job 38 | import task spotube
   ansible.builtin.import_tasks:
@@ -278,7 +278,7 @@
   when: instl_docker_pckg and dckr_dpl_spotube
   tags:
     - spotube
-    - #test
+    -  #test
 #
 - name: Job 39 | import task spotube
   ansible.builtin.import_tasks:
@@ -286,7 +286,7 @@
   when: instl_docker_pckg and dckr_dpl_jmj
   tags:
     - jmj
-    - #test
+    -  #test
 #
 - name: Job 40 | import task gpt
   ansible.builtin.import_tasks:
@@ -294,7 +294,7 @@
   when: instl_docker_pckg and dckr_dpl_gpt
   tags:
     - gpt
-    - #test
+    -  #test
 #
 - name: Job 41 | import task rustdesk
   ansible.builtin.import_tasks:
@@ -321,7 +321,7 @@
   when: instl_docker_pckg
   tags:
     - prune
-    - #test
+    -  #test
 #
 # command: touch "{{ item.item }}"
 #   with_items:

@@ -1,4 +1,3 @@
-
 # Reset sources list only for Ubuntu < 20.04
 - name: Reset APT sources list
   template:

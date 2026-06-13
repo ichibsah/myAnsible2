@@ -49,7 +49,7 @@
     # pull is not needed here because we already forced a pull, but keeping it 'policy' is harmless.
     pull: policy
     definition:
-      version: '3.9'
+      version: "3.9"
       services:
         overseerr:
           hostname: overseerr.skyline.lan
@@ -72,4 +72,3 @@
   ansible.builtin.assert:
     that:
       - "overseerr_compose_out.services.overseerr.{{ overseerr_container_name | default('overseerr_con') }}.state.running"
-  

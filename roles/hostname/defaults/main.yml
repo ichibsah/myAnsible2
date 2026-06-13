@@ -5,4 +5,4 @@ hostname_hostname: "{{ hostname_additional_hosts[0].hostname }}"
 hostname_hostname_short: "{{ inventory_hostname_short }}"
 hostname_additional_hosts: []
 hostname_hostname_use_full: true
-hostname_hostname_ip_address: '127.0.1.1'
+hostname_hostname_ip_address: "127.0.1.1"

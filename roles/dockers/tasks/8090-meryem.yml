@@ -2,12 +2,12 @@
 #
 - name: Job 00 | Deploy Meryem - pull from git
   vars:
-    working_dir: "{{dckr_bs_pth}}/meryem-8090/" 
-    log_dir: "{{ working_dir}}logs" 
+    working_dir: "{{dckr_bs_pth}}/meryem-8090/"
+    log_dir: "{{ working_dir}}logs"
     #http://test.katja-meryem-bruegel.de/
   ansible.builtin.git:
-    #working_dir: "{{dckr_bs_pth}}/meryem-8090/" 
-    #log_dir: "{{ working_dir}}logs" 
+    #working_dir: "{{dckr_bs_pth}}/meryem-8090/"
+    #log_dir: "{{ working_dir}}logs"
     #repo: https://github.com/ichibsah/meryem.git
     #repo: git@github.com:ichibsah/meryem.git
     repo: git@github.com:skylinewebservice/meryem.git
@@ -43,14 +43,14 @@
     #
     project_name: Meryem
     definition:
-      version: '3.9'
+      version: "3.9"
       services:
         meryem:
           hostname: https://meryem{{ dmain_pstfx }}"
           container_name: Meryem_con
           image: meryem:latest
           ports:
-            - 8090:8000 
+            - 8090:8000
           restart: always
           environment:
             - TZ=Europe/Berlin
@@ -64,17 +64,17 @@
   register: output
   tags:
     - assert
-    - #test
+    -  #test
   #
 - name: Verify that meryem is running
   ansible.builtin.assert:
     that:
       - "output.services.meryem.Meryem_con.state.running"
-      - #"output.services.mysql.ansiblemysql.state.running"
+      -  #"output.services.mysql.ansiblemysql.state.running"
   # when: instl_docker_pckg and dckr_dpl_meryem
   tags:
     - assert
-    - #test
+    -  #test
 
 # # https://mariushosting.com/how-to-install-emby-on-your-synology-nas/
 

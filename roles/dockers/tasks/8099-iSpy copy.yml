@@ -21,5 +21,3 @@
     restart_policy: always
   when: instl_docker_pckg and dckr_dpl_iSpy
   #tags: test
-
-

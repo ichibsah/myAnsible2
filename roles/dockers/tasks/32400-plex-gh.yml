@@ -12,10 +12,10 @@
 # #
 # - name: add user to group
 #   user:
-#     name: ibrahim@skyline 
-#     groups:  sudo, docker 
+#     name: ibrahim@skyline
+#     groups:  sudo, docker
 #   tags:
-#     - #test  
+#     - #test
 # #
 # - name: Mount ephemeral SMB volume
 #   block:
@@ -31,7 +31,7 @@
 #       state: ephemeral
 #   when: instl_docker_pckg and dckr_dpl_plex
 #   # become: false
-#   # become_user: ibrahim    
+#   # become_user: ibrahim
 #   tags:
 #     - #test
 # #
@@ -50,7 +50,7 @@
 #       state: ephemeral
 #   #when: instl_docker_pckg and dckr_dpl_plex
 #   # become: false
-#   # become_user: ibrahim    
+#   # become_user: ibrahim
 #   tags:
 #     - #test
 #
@@ -96,23 +96,23 @@
   register: output
   tags:
     - assert
-    - #test
+    -  #test
   #
   # for debug purpose only - disabled in the meantime
 # - name: Show results
 #   ansible.builtin.debug:
 #     var: output
 #   #tags: test
-  #
+#
 - name: Verify that plex is running
   ansible.builtin.assert:
     that:
       - "output.services.plex.plex_con.state.running"
-      - #"output.services.mysql.ansiblemysql.state.running"
+      -  #"output.services.mysql.ansiblemysql.state.running"
   #when: instl_docker_pckg and dckr_dpl_plex
   tags:
     - assert
-    - #test
+    -  #test
 
 # # https://mariushosting.com/how-to-install-gravity-on-your-synology-nas/
 

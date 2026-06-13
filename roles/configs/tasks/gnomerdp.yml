@@ -10,7 +10,7 @@
     path: "{{ gnome_rdp_cert_path }}"
     state: directory
     owner: "{{ gnome_rdp_user }}"
-    mode: '0700'
+    mode: "0700"
 
 # --- Generate TLS cert if missing ---
 - name: Generate TLS key/cert for RDP

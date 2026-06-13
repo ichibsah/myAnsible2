@@ -51,7 +51,6 @@
 - name: Assert ipv6_localhost's resolvability
   assert:
     that: "{{ ipv6_localhost is ansible.utils.resolvable }}"
-
 # TASK [Assert ipv4_localhost's resolvability] *******************************************
 # ok: [localhost] => {
 #     "changed": false,

@@ -3,7 +3,7 @@
 
 - name: Job-001 PCKG | Install ansible package using apt
   apt:
-    name:  
+    name:
       - python3
       - pip
       - pipx
@@ -29,9 +29,7 @@
     api_host: pve01.skyline.lan
     password: "{{ localhost_become_pass }}"
     hostname: test.skyline.lan
-    ostemplate: 'local:vmtmpl/debian-12.0.0-amd64-netist.iso'
-
-
+    ostemplate: "local:vmtmpl/debian-12.0.0-amd64-netist.iso"
 # - name: Create new container with hookscript and description
 #   community.general.proxmox:
 #     vmid: 100

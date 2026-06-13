@@ -15,7 +15,7 @@
     #
     project_name: Gravity
     definition:
-      version: '3.9'
+      version: "3.9"
       services:
         gravity:
           hostname: gravity1
@@ -36,28 +36,28 @@
 
       volumes:
         data:
-          driver: local      
+          driver: local
   when: instl_docker_pckg and dckr_dpl_gravity
   register: output
   tags:
     - assert
-    - #test
+    -  #test
   #
   # for debug purpose only - disabled in the meantime
 # - name: Show results
 #   ansible.builtin.debug:
 #     var: output
 #   #tags: test
-  #
+#
 - name: Verify that gravity is running
   ansible.builtin.assert:
     that:
       - "output.services.gravity.Gravity.state.running"
-      - #"output.services.mysql.ansiblemysql.state.running"
+      -  #"output.services.mysql.ansiblemysql.state.running"
   when: instl_docker_pckg and dckr_dpl_gravity
   tags:
     - assert
-    - #test
+    -  #test
 
 # # https://mariushosting.com/how-to-install-gravity-on-your-synology-nas/
 

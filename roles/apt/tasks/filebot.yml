@@ -20,23 +20,23 @@
     validate_certs: no
   when: instl_filebot_pckg
   tags:
-    - #test
-# 
+    -  #test
+#
 # --break-system-packages
 - name: Job 02 | Install FileBot
   package:
     name: "{{item}}"
     state: present
   with_items:
-  - filebot
-  - ffmpeg
-  - libavcodec-extra 
-  - x264
-  - default-jdk
-  - #openjdk17-headless
-  - libavcodec-extra
+    - filebot
+    - ffmpeg
+    - libavcodec-extra
+    - x264
+    - default-jdk
+    -  #openjdk17-headless
+    - libavcodec-extra
   when: instl_filebot_pckg
   tags:
-    - #test
+    -  #test
 
 # wget https://mediaarea.net/repo/deb/repo-mediaarea_1.0-24_all.deb && dpkg -i repo-mediaarea_1.0-24_all.deb && apt-get update

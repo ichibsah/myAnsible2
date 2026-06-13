@@ -10,8 +10,8 @@
   vars:
     mynfs: "192.168.0.200:/nfs/share"
     mountpoint: "/share"
-    permission: '0777'
-    myopts: 'rw,sync'
+    permission: "0777"
+    myopts: "rw,sync"
   tasks:
     - name: utility present redhat-like
       ansible.builtin.yum:

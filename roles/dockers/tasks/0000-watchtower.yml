@@ -7,12 +7,12 @@
     working_dir: "/opt/docker/"
     name: watchtower
     image: "containrrr/watchtower"
-    command: 
+    command:
       #--interval 30
-      --cleanup 
+      --cleanup
       --interval 28800
     #ports:
-      #- "9443:9443"
+    #- "9443:9443"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /etc/localtime:/etc/localtime:ro
@@ -20,7 +20,6 @@
   when: instl_docker_pckg
   #tags: test
 
-  
   # docker_container:
   #   name:  # required. Assign a name to a new container or match an existing container. When identifying an existing container name may be a name or a long or short container ID.
   #   auto_remove: False # not required. Enable auto-removal of the container on daemon side when the container's process exits.

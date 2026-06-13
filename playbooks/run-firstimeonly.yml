@@ -37,7 +37,6 @@
     - ssh
     - provisions
     - reboot
-
 # - name: PROVISIONS | First time Initialisation - LOCALHOST
 #   hosts: local
 #   ignore_errors: true

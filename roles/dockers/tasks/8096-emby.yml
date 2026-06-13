@@ -10,7 +10,7 @@
     #
     project_name: Emby
     definition:
-      version: '3.9'
+      version: "3.9"
       services:
         emby:
           hostname: emby.skyline.lan
@@ -19,8 +19,8 @@
           ports:
             - 1900:1900
             - 7359:7359
-            - 8096:8096 
-            - 8920:8920 
+            - 8096:8096
+            - 8920:8920
           restart: always
           environment:
             - TZ=Europe/Berlin
@@ -34,23 +34,23 @@
   register: output
   tags:
     - assert
-    - #test
+    -  #test
   #
   # for debug purpose only - disabled in the meantime
 # - name: Show results
 #   ansible.builtin.debug:
 #     var: output
 #   #tags: test
-  #
+#
 - name: Verify that emby is running
   ansible.builtin.assert:
     that:
       - "output.services.emby.Emby_container.state.running"
-      - #"output.services.mysql.ansiblemysql.state.running"
+      -  #"output.services.mysql.ansiblemysql.state.running"
   when: instl_docker_pckg and dckr_dpl_emby
   tags:
     - assert
-    - #test
+    -  #test
 
 # # https://mariushosting.com/how-to-install-emby-on-your-synology-nas/
 

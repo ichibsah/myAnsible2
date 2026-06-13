@@ -26,7 +26,7 @@
   ansible.builtin.import_tasks:
     file: bind.yml
   #when: apt_host_pckg_lst | contains bind9
-  tags: 
+  tags:
     - dns
 
 - name: Job 07.01 | Run preflight safety checks
@@ -35,7 +35,7 @@
   tags:
     - preflight
     #- test
-#  
+#
 - name: Job 07.02 | import task interfaces
   ansible.builtin.import_tasks:
     file: interfaces.yml
@@ -115,7 +115,7 @@
 #
 - name: Job 17 | import task rsync
   ansible.builtin.import_tasks:
-    file: rsync.yml # work in progress. reman to 
+    file: rsync.yml # work in progress. reman to
   when: start_rsync and paused
   tags:
     #- test
@@ -174,7 +174,7 @@
     file: vscode.yml
   when: vscode
   tags:
-#   - test
+    #   - test
     - vscode
 #
 - name: Job 25 | import task gnomerdp
@@ -183,7 +183,7 @@
     #file: gnomerdpv1.2.yml
   when: gnomerdp
   tags:
-#   - test
+    #   - test
     - gnomerdp
 #
 - name: Job 25.1 | import task gnomerdp
@@ -192,7 +192,7 @@
     file: gnomerdpv1.2.yml
   when: gnomerdp
   tags:
-#   - test
+    #   - test
     - gnomerdp
 #
 - name: Job 25.3 | import task xrdp
@@ -201,7 +201,7 @@
     file: xrdp1.3.yml
   when: xrdp
   tags:
-#   - test
+    #   - test
     - xrdp
 #
 - name: Job 25.4 | import task xrdp-netdata
@@ -210,7 +210,7 @@
     file: xrdp-netdata.yml
   when: xrdp
   tags:
-#   - test
+    #   - test
     - xrdp
 #
 - name: Job 26 | import task docker

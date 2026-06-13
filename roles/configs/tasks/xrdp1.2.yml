@@ -59,7 +59,7 @@
     dest: /etc/skel/.xsession
     content: |
       startxfce4
-    mode: '0644'
+    mode: "0644"
 
 - name: Ensure current users have XFCE
   shell: |
@@ -75,7 +75,7 @@
 - name: Configure startwm.sh
   copy:
     dest: /etc/xrdp/startwm.sh
-    mode: '0755'
+    mode: "0755"
     content: |
       #!/bin/sh
 
@@ -123,7 +123,7 @@
 - name: Allow RDP via UFW (fallback)
   ufw:
     rule: allow
-    port: '3389'
+    port: "3389"
     proto: tcp
   when:
     - iptables_check.rc != 0
@@ -135,8 +135,8 @@
 - name: Ensure XRDP uses port 3389
   lineinfile:
     path: /etc/xrdp/xrdp.ini
-    regexp: '^port='
-    line: 'port=3389'
+    regexp: "^port="
+    line: "port=3389"
   notify: Restart xrdp
 #
 #
@@ -158,7 +158,7 @@
 - name: Block root login via XRDP
   lineinfile:
     path: /etc/pam.d/xrdp-sesman
-    insertafter: '^auth'
+    insertafter: "^auth"
     line: "auth required pam_succeed_if.so user != root"
 #
 #
@@ -171,6 +171,7 @@
     content: |
       + : ibrahim : ALL
       - : ALL : ALL
+
 # #
 # For a production server:
 # ✔ Disable root login ✅

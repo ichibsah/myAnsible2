@@ -89,7 +89,6 @@
     name: gnome-remote-desktop
     state: restarted
   notify: restart gnome remote desktop
-
 # ## troubleshooting commands:
 # systemctl --user status gnome-remote-desktop.service
 # systemctl --user start gnome-remote-desktop.service

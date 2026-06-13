@@ -1,4 +1,3 @@
-
 ---
 # Role: improved_user_mgmt_role
 # Main task file with improved structure, comments, and handlers
@@ -15,10 +14,10 @@
 - name: Add global sudo rights via lineinfile (Debian only)
   ansible.builtin.lineinfile:
     dest: /etc/sudoers
-    regexp: '^ibrahim'
-    line: 'ibrahim ALL=(ALL) NOPASSWD: ALL'
+    regexp: "^ibrahim"
+    line: "ibrahim ALL=(ALL) NOPASSWD: ALL"
     state: present
-    validate: 'visudo -cf %s'
+    validate: "visudo -cf %s"
   when: ansible_os_family == 'Debian'
   notify: Reload sudo
   tags: sudo
@@ -95,7 +94,6 @@
     path: /var/run/reboot-required
   register: reboot_required_file
   tags: reboot
-
 # Task 99.1: Reboot system if required
 # - name: Reboot server if kernel update requires it
 #   ansible.builtin.reboot:

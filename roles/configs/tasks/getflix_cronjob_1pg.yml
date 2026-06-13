@@ -3,11 +3,11 @@
 
   vars:
     # === Customize these ===
-    target_url: "https://example.com/health"      # URL to open every hour
-    log_dir: "/var/log/url-check"                 # Where daily logs are written
-    script_path: "/usr/local/bin/url_check.sh"    # Wrapper script path
-    cron_user: "root"                             # Which user's crontab to use
-    webhook_env_file: "/etc/url-check.env"        # Root-only file to hold secrets
+    target_url: "https://example.com/health" # URL to open every hour
+    log_dir: "/var/log/url-check" # Where daily logs are written
+    script_path: "/usr/local/bin/url_check.sh" # Wrapper script path
+    cron_user: "root" # Which user's crontab to use
+    webhook_env_file: "/etc/url-check.env" # Root-only file to hold secrets
 
     # REQUIRED: Teams Incoming Webhook URL (e.g., https://outlook.office.com/webhook/.... or api.webhook.office.com/...)
     # Provide via `-e teams_webhook_url=...` or through Ansible Vault (recommended)
@@ -34,14 +34,14 @@
         state: directory
         owner: "{{ cron_user }}"
         group: "{{ cron_user }}"
-        mode: '0755'
+        mode: "0755"
 
     - name: Install Teams webhook env file (root-only)
       ansible.builtin.copy:
         dest: "{{ webhook_env_file }}"
         owner: root
         group: root
-        mode: '0600'
+        mode: "0600"
         content: |
           # Secrets for url_check.sh
           WEBHOOK_URL="{{ teams_webhook_url }}"
@@ -51,7 +51,7 @@
         dest: "{{ script_path }}"
         owner: root
         group: root
-        mode: '0750'
+        mode: "0750"
         content: |
           #!/usr/bin/env bash
           set -euo pipefail

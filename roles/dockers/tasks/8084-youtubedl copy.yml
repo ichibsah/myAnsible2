@@ -8,7 +8,7 @@
     #
     project_name: YoutubeDl
     definition:
-      version: '3.9'
+      version: "3.9"
       services:
         youtubedl:
           hostname: ytdl.skyline.lan
@@ -32,17 +32,17 @@
   when: instl_docker_pckg and dckr_dpl_youtubedl
   register: output
   tags:
-    - #test
+    -  #test
 #
 - name: Verify that tubesync is running
   ansible.builtin.assert:
     that:
       - "output.services.youtubedl.YoutubeDl_con.state.running"
-      - #"output.services.mysql.ansiblemysql.state.running"
+      -  #"output.services.mysql.ansiblemysql.state.running"
   when: instl_docker_pckg and dckr_dpl_youtubedl
   tags:
     - assert
-    - #test
+    -  #test
 
 # # https://mariushosting.com/how-to-install-tubesync-on-your-synology-nas/
 

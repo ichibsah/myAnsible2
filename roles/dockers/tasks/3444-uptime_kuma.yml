@@ -17,7 +17,6 @@
     uk_image_full: "{{ uk_image_name }}:{{ uk_image_tag }}"
     uk_timezone: "Europe/Berlin"
   block:
-
     # 1) Pull the latest image (force pull to check for updates)
     - name: "Pull latest uptime-kuma image (force)"
       community.docker.docker_image:
@@ -64,7 +63,7 @@
       community.docker.docker_compose:
         project_name: "{{ prg_name }}"
         definition:
-          version: '3.9'
+          version: "3.9"
           services:
             uptimekuma:
               # NOTE: 'hostname' is typically a short host name; leaving your original value unchanged
@@ -76,7 +75,7 @@
               restart: always
               environment:
                 - "TZ={{ uk_timezone }}"
-              user: "0:0"  # root
+              user: "0:0" # root
               volumes:
                 - "{{ working_dir }}uptimekuma:/app/data"
                 - "/var/run/docker.sock:/var/run/docker.sock"

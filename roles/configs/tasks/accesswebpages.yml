@@ -46,7 +46,7 @@
           - "'success' in login_result.json"
         fail_msg: "❌ Login failed for {{ site.url }}"
       when: login_result.json is defined
-      ignore_errors: yes  # Prevents full stop on failure
+      ignore_errors: yes # Prevents full stop on failure
 
     - name: Report login status
       #ansible.builtin.shell: echo "$(date) - INFO: Login successful for {{ site.url }} - Response: {{ login_result.status }}" >> /var/log/ansible_webpage_access.log

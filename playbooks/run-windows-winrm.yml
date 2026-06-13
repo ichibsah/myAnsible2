@@ -3,7 +3,7 @@
   hosts: windows_users
   #gather_facts: true
 
-#
+  #
   gather_facts: true
 
   vars:
@@ -13,7 +13,6 @@
 
   roles:
     - win_update
-
 # ansible_user: username@MY.DOMAIN.COM
 # ansible_password: Password
 
@@ -29,4 +28,4 @@
 # https://docs.ansible.com/ansible/latest/os_guide/windows_winrm.html#windows-winrm
 # https://www.bing.com/search?FORM=U523DF&PC=U779&q=ansible+connection+to+windows+11&ntref=1
 # https://woshub.com/ansible-manage-windows-machines/
-# 
+#

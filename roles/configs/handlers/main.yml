@@ -75,7 +75,6 @@
 # notify:
 #   - "restart sensu-services"
 
-
 # handlers:
 # - name: restart sensu api
 #   listen: "restart sensu-services"

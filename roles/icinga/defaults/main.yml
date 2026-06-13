@@ -18,7 +18,6 @@ users:
     create_home: false
     local: true
 #
-groups: 
+groups:
   - icinga
   - icingacmd
-  

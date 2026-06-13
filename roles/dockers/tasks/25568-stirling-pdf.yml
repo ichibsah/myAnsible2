@@ -9,7 +9,7 @@
     #
     project_name: stirling
     definition:
-      version: '3.9'
+      version: "3.9"
       services:
         stirling-pdf:
           image: frooodle/s-pdf:latest
@@ -26,15 +26,14 @@
             - TZ=Europe/Berlin
             - PUID=${UID}
             - PGID=${GID}
-            - DOCKER_ENABLE_SECURITY=false          
+            - DOCKER_ENABLE_SECURITY=false
   when: instl_docker_pckg and dckr_dpl_webpdf
   tags:
-    - #test              
+    -  #test
 #
 #
-#  
+#
 # https://github.com/ichibsah/Stirling-PDF
-
 
 # version: '3.3'
 # services:

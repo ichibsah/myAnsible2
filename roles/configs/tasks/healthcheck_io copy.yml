@@ -1,5 +1,5 @@
 - name: Find healthcheck URLs
-  
+
   block:
     - name: Get checks
       ansible.builtin.uri:
@@ -33,7 +33,7 @@
       ansible.builtin.fail:
         msg: "No healthcheck URLs found for {{ inventory_hostname }}"
       when: healthcheck_io_pause_url | length == 0 or healthcheck_io_resume_url | length == 0
-      failed_when: true  # Ensures this task registers as a failure (so rescue runs)
+      failed_when: true # Ensures this task registers as a failure (so rescue runs)
 
   rescue:
     - name: Create check
@@ -46,7 +46,7 @@
         body:
           name: "{{ inventory_hostname }}-uptime"
           timeout: 300
-        status_code: 
+        status_code:
           - 200
           - 201
       delegate_to: localhost
@@ -63,14 +63,14 @@
 
     - name: Patch and reboot host
       block:
-      - name: Pause healthcheck
-        ansible.builtin.uri:
-          url: "{{ healthcheck_io_pause_url }}"
-          headers:
-            X-API-Key: "{{ healthchecks_io_api_key }}"
-          method: POST
-          status_code: 200
-        delegate_to: localhost
+        - name: Pause healthcheck
+          ansible.builtin.uri:
+            url: "{{ healthcheck_io_pause_url }}"
+            headers:
+              X-API-Key: "{{ healthchecks_io_api_key }}"
+            method: POST
+            status_code: 200
+          delegate_to: localhost
 
     - name: Patch server
       ansible.builtin.package:

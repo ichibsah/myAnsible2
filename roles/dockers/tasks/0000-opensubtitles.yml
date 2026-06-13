@@ -13,7 +13,7 @@
 #       state: ephemeral
 #   when: instl_docker_pckg and dckr_dpl_plex
 #   # become: false
-#   # become_user: ibrahim    
+#   # become_user: ibrahim
 #   tags:
 #     - test
 # #
@@ -27,7 +27,7 @@
     #
     project_name: Opensubtitles
     definition:
-      version: '3.9'
+      version: "3.9"
       services:
         opensubtitles:
           hostname: opensubtitles.skyline.lan
@@ -50,23 +50,23 @@
   register: output
   tags:
     - assert
-    - #test
+    -  #test
   #
   # for debug purpose only - disabled in the meantime
 # - name: Show results
 #   ansible.builtin.debug:
 #     var: output
 #   #tags: test
-  #
+#
 - name: Verify that opensubtitles is running
   ansible.builtin.assert:
     that:
       - "output.services.opensubtitles.opensubtitles_con.state.running"
-      - #"output.services.mysql.ansiblemysql.state.running"
+      -  #"output.services.mysql.ansiblemysql.state.running"
   when: instl_docker_pckg and dckr_dpl_opnsbttls
   tags:
     - assert
-    - #test
+    -  #test
 
 # # https://mariushosting.com/how-to-install-gravity-on-your-synology-nas/
 
@@ -90,7 +90,6 @@
 #       - UID=1000
 #       - GID=1000
 #       - USERNAME='my opensubtitle username'
-#       - PASSWORD='my opensubtitle password      
-
+#       - PASSWORD='my opensubtitle password
 
 # https://hub.docker.com/r/fredrickbacker/opensubtitles

@@ -34,7 +34,7 @@
   community.docker.docker_container_info:
     name: "{{ ytdl_container_name }}"
   register: ytdl_container_info
-  failed_when: false  # in case it doesn't exist
+  failed_when: false # in case it doesn't exist
 
 # 3) If a new image was pulled and the container exists, stop & remove it
 - name: "Stop and remove existing container when image updated"
@@ -60,7 +60,7 @@
     project_name: "{{ ytdl_project_name }}"
     recreate: "{{ 'always' if ytdl_pull.changed else 'never' }}"
     definition:
-      version: '3.9'
+      version: "3.9"
       services:
         youtubedl:
           hostname: "{{ ytdl_hostname }}"

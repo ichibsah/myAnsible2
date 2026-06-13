@@ -10,7 +10,6 @@
     file: resolv.yml
   #when: apt_host_pckg_lst | contains bind9
 
-
 - name: Job 01 | Reset the sources list (/etc/apt/sources.list)
   template:
     src: etc_apt_sources.list.j2
@@ -33,8 +32,8 @@
   dnf:
     update_cache: yes
   when: ansible_os_family != "Debian"
-  tags: 
-    - #test
+  tags:
+    -  #test
 #
 # TODO: avoid using shell here - disabled in the meantime
 # - name: Job 03 | Check for cached .deb files
@@ -75,7 +74,7 @@
   #when: instl_def_pckg
   when: instl_def_pckg
   tags:
-    - #test
+    -  #test
 #
 #
 # TODO: run below when above fails
@@ -112,12 +111,11 @@
   ansible.builtin.package:
     name: "{{item}}"
     state: present
-  loop:
-    "{{apt_host_pckg_lst}}"
+  loop: "{{apt_host_pckg_lst}}"
   when: apt_host_pckg_lst.0 is defined
   #when: ansible_os_family == "Debian" and instl_def_pckg
-  tags: 
-    - #test
+  tags:
+    -  #test
 #
 - name: Job 00 | import task resolv
   ansible.builtin.import_tasks:
@@ -126,7 +124,7 @@
 #  09.1.1 and  09.1.2 is not wrking properly.
 - name: Job 09.1.1 | Install Utilities Packages (method once)
   ansible.builtin.package:
-    name: "{{apt_util_lst}}" 
+    name: "{{apt_util_lst}}"
     state: present
   register: result
   when: ansible_os_family == "Debian"
@@ -143,8 +141,7 @@
   ansible.builtin.package:
     name: "{{item}}"
     state: present
-  loop:
-    "{{apt_util_lst}}"
+  loop: "{{apt_util_lst}}"
   when: result is failed
   #tags: test
 #
@@ -156,22 +153,19 @@
 #
 - name: Job 11 | Install host "{{ansible_hostname}}" specific package using pip
   pip:
-    name:  
-      "{{pip_host_pckg_lst}}"
+    name: "{{pip_host_pckg_lst}}"
     state: present
   when: instl_ansbl_pckg
 #
 - name: Job 12 | REMOVE ansible package using pip # REMOVE #
   pip:
-    name:  
-      "{{pip_ansbl_pckg_lst}}"
+    name: "{{pip_ansbl_pckg_lst}}"
     state: absent
   when: not instl_ansbl_pckg and not kill_remove
 
 - name: Job 13 | REMOVE ansible package using apt # REMOVE #
   ansible.builtin.package:
-    name:  
-      "{{apt_ansbl_pckg_lst}}"
+    name: "{{apt_ansbl_pckg_lst}}"
     state: absent
   when: not instl_ansbl_pckg and not kill_remove
 #
@@ -193,42 +187,39 @@
   when: apt_autoclean
 #
 - name: Job 17 | Ensure Services are running.
-  systemd: 
+  systemd:
     name: "{{ item }}"
     state: started
     enabled: yes
-  with_items: 
-    "{{apt_strt_srvc_lst}}"
+  with_items: "{{apt_strt_srvc_lst}}"
   when: sysd_strt_srvc
 #
 # name changed. see job 18
 # - name: Job 17 | Ensure Services are running.
-#   systemd: 
+#   systemd:
 #     name: "{{ item }}"
 #     state: started
 #     enabled: yes
-#   with_items: 
+#   with_items:
 #     "{{apt_started_services_list}}"
 #   when: apt_started_services_list.0 is define
-#   tags: 
+#   tags:
 #     - test
 #
 - name: Job 18 | Ensure host specific Services are running.
-  systemd: 
+  systemd:
     name: "{{ item }}"
     state: started
     enabled: yes
-  with_items: 
-    "{{apt_hst_strt_srvc_lst}}"
+  with_items: "{{apt_hst_strt_srvc_lst}}"
   when: apt_hst_strt_srvc_lst.0 is defined
 #
 - name: Job 19 | STOP running Services. # REMOVE #
-  systemd: 
+  systemd:
     name: "{{ item }}"
     state: stopped
     enabled: no
-  with_items: 
-    "{{apt_strt_srvc_lst}}"
+  with_items: "{{apt_strt_srvc_lst}}"
   when: not sysd_strt_srvc and not kill_remove
 #
 # IMPORT TASKS goes here ...
@@ -258,4 +249,3 @@
   ansible.builtin.import_tasks:
     file: reboot.yml
   #when: apt_host_pckg_lst | contains bind9
-

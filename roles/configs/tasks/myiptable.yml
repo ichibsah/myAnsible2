@@ -10,30 +10,30 @@
 #     group: root
 #
 #- name: Job 01.3.1 | Update network configuration.
-  # lineinfile:
-  #   dest: /etc/network/interfaces
-  #   regexp: "{{ item.regexp }}"
-  #   line: "{{ item.line }}"
-  #   state: present
-  #   #validate: 'sshd -t -f %s'
-  # with_items:
-  #   - regexp: "^INTERFACESv4"
-  #     line: "{{dsbl_dhcpvsx}}"
-  #   # - regexp: "^PermitRootLogin"
-  #   #   line: "PermitRootLogin no"
-  #   # - regexp: "^Port"
-  #   #   line: "Port 22"
-  #   # - regexp: "^PubkeyAuthentication"
-  #   #   line: "PubkeyAuthentication yes"
-  #   # - regexp: "^ChallengeResponseAuthentication"
-  #   #   line: "ChallengeResponseAuthentication no"
-  #   # - regexp: "^PermitEmptyPasswords"
-  #   #   line: "PermitEmptyPasswords no"    
-  #   # - regexp: "^AllowAgentForwarding"
-  #   #   line: "AllowAgentForwarding yes"         
-  # notify: Restart dhcp
-  # when: dsbl_dhcpvsx
-  # #tags: test
+# lineinfile:
+#   dest: /etc/network/interfaces
+#   regexp: "{{ item.regexp }}"
+#   line: "{{ item.line }}"
+#   state: present
+#   #validate: 'sshd -t -f %s'
+# with_items:
+#   - regexp: "^INTERFACESv4"
+#     line: "{{dsbl_dhcpvsx}}"
+#   # - regexp: "^PermitRootLogin"
+#   #   line: "PermitRootLogin no"
+#   # - regexp: "^Port"
+#   #   line: "Port 22"
+#   # - regexp: "^PubkeyAuthentication"
+#   #   line: "PubkeyAuthentication yes"
+#   # - regexp: "^ChallengeResponseAuthentication"
+#   #   line: "ChallengeResponseAuthentication no"
+#   # - regexp: "^PermitEmptyPasswords"
+#   #   line: "PermitEmptyPasswords no"
+#   # - regexp: "^AllowAgentForwarding"
+#   #   line: "AllowAgentForwarding yes"
+# notify: Restart dhcp
+# when: dsbl_dhcpvsx
+# #tags: test
 #
 - name: Job 00 | Copy iptables.sh to root folder
   copy:
@@ -44,7 +44,7 @@
     mode: 0540
   when: copy_iptables
   tags:
-    - #test
+    -  #test
 #
 - name: Job 01 | Refresh iptables at reboot
   cron:
@@ -52,8 +52,8 @@
     special_time: reboot
     job: "bash {{myiptbls_flnm}}" # myiptbls_flnm: "/root/myiptable.sh"
   when: strt_myiptbls_at_boot
-  tags: 
-    - #test
+  tags:
+    -  #test
 #
 - name: Job 02 | Refresh gw at reboot
   cron:
@@ -61,5 +61,5 @@
     special_time: reboot
     job: "bash {{mygw_flnm}}" # mygw_flnm: "/root/gw-gh.sh"
   when: strt_mygw_at_boot
-  tags: 
-    - #test
+  tags:
+    -  #test

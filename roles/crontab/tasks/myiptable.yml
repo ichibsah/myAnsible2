@@ -8,5 +8,5 @@
 #     job: "bash /root/myiptable.sh"
 #   #when: copy_iptables and strt_myiptbls_at_boot
 #   when: strt_myiptbls_at_boot
-#   tags: 
+#   tags:
 #     - #test

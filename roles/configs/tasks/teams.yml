@@ -12,7 +12,7 @@
   ansible.builtin.get_url:
     url: https://repo.teamsforlinux.de/key.gpg
     dest: /usr/share/keyrings/teams-for-linux.gpg
-    mode: '0644'
+    mode: "0644"
 
 - name: Set repository filename based on channel
   ansible.builtin.set_fact:

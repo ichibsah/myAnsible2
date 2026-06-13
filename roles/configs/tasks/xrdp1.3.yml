@@ -82,7 +82,7 @@
     dest: /etc/skel/.xsession
     content: |
       startxfce4
-    mode: '0644'
+    mode: "0644"
 
 - name: Ensure XFCE session for users
   shell: |
@@ -98,7 +98,7 @@
 - name: Configure startwm.sh
   copy:
     dest: /etc/xrdp/startwm.sh
-    mode: '0755'
+    mode: "0755"
     content: |
       #!/bin/sh
 
@@ -146,7 +146,7 @@
 - name: Allow RDP via UFW fallback
   ufw:
     rule: allow
-    port: '3389'
+    port: "3389"
     proto: tcp
   when:
     - iptables_check.rc != 0
@@ -158,7 +158,7 @@
 - name: Create fail2ban jail.local
   copy:
     dest: /etc/fail2ban/jail.local
-    mode: '0644'
+    mode: "0644"
     content: |
       [DEFAULT]
       bantime = 1h
@@ -180,7 +180,7 @@
 - name: Create xrdp filter
   copy:
     dest: /etc/fail2ban/filter.d/xrdp.conf
-    mode: '0644'
+    mode: "0644"
     content: |
       [Definition]
       failregex = .*authentication failure.*user=.* from <HOST>.*
@@ -193,7 +193,6 @@
 # fail2ban-client status xrdp
 # fail2ban-client status xrdp
 # passwd -S root  # expect root L ...
-
 
 # #
 # If you want next-level security, I can add:

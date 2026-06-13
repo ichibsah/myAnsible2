@@ -8,7 +8,7 @@
 #   - ca-certificates
 #   - python3-docker
 #   - lsb-release gnupg2 apt-transport-https ca-certificates curl software-properties-common
-# 
+#
 # apt reinstall docker docker-compose docker-compose-plugin
 #
 - name: Job 20.01 | Add Docker-ce Repo
@@ -19,9 +19,9 @@
     mode: 0644 # not required. The octal mode for newly created files in sources.list.d
     update_cache: yes # not required. Run the equivalent of C(apt-get update) when a change occurs.  Cache updates are run after making changes.
     validate_certs: yes
-  # the when here is no longer requred.  
-  #when: instl_docker_pckg and (ansible_facts['distribution'] == "Debian" and ansible_facts['distribution_major_version'] < "12") #bullseye    
-  #when: instl_docker_pckg and (ansible_facts['distribution'] == "Debian" and ansible_facts['distribution_major_version'] < "12") #bullseye    
+  # the when here is no longer requred.
+  #when: instl_docker_pckg and (ansible_facts['distribution'] == "Debian" and ansible_facts['distribution_major_version'] < "12") #bullseye
+  #when: instl_docker_pckg and (ansible_facts['distribution'] == "Debian" and ansible_facts['distribution_major_version'] < "12") #bullseye
   #tags: test
 #
 # this has been disabled after finding a universal repo: for all releases.
@@ -36,18 +36,18 @@
 #     validate_certs: yes
 #   when: instl_docker_pckg and (ansible_facts['distribution'] == "Debian" and ansible_facts['distribution_major_version'] >= "12") #bookworm
 #   tags: test
-# 
+#
 # --break-system-packages
 - name: Job 20.03 | Global Install - Python3 and pip
   apt:
     pkg: "{{item}}"
     state: latest
   with_items:
-  - python3
-  - pip
-  - python3-apt
-  - python3-pip
-  - python3-full
+    - python3
+    - pip
+    - python3-apt
+    - python3-pip
+    - python3-full
   #when: instl_docker_pckg
   # tags: test #TODO
 #
@@ -93,16 +93,14 @@
 - name: Job 21.98 | update user groups
   group:
     name: docker # required. Name of the group to manage.
-    gid:  # not required. Optional I(GID) to set for the group.
+    gid: # not required. Optional I(GID) to set for the group.
     state: present # not required. choices: absent;present. Whether the group should be present or not on the remote host.
 
 - name: Job 21.99 | append user to new groups
   user:
     name: ibrahim # required. Name of the user to create, remove or modify.
-    groups: docker 
+    groups: docker
     append: yes
-
-
 #
 # pip:
 #   name:  # not required. The name of a Python library to install or the url(bzr+,hg+,git+,svn+) of the remote package. This can be a list (since 2.2) and contain version specifiers (since 2.7).

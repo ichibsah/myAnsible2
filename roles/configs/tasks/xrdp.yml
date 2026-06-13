@@ -24,7 +24,7 @@
     dest: /etc/skel/.xsession
     content: |
       startxfce4
-    mode: '0644'
+    mode: "0644"
 
 - name: Ensure existing users get XFCE session
   shell: |
@@ -38,17 +38,16 @@
   template:
     src: startwm.sh.j2
     dest: /etc/xrdp/startwm.sh
-    mode: '0755'
+    mode: "0755"
   notify: Restart xrdp
 
 # Optional firewall (UFW)
 - name: Allow RDP port (3389)
   ufw:
     rule: allow
-    port: '3389'
+    port: "3389"
     proto: tcp
   when: ansible_facts['os_family'] == "Debian"
-
 ## optional task
 
 # - name: Copy TLS certificate

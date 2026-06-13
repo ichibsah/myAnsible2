@@ -2,13 +2,13 @@
   ansible.builtin.file:
     path: /etc/apt/keyrings
     state: directory
-    mode: '0755'
+    mode: "0755"
 
 - name: Download teams-for-linux GPG key
   ansible.builtin.get_url:
     url: https://repo.teamsforlinux.de/teams-for-linux.asc
     dest: /etc/apt/keyrings/teams-for-linux.asc
-    mode: '0644'
+    mode: "0644"
 
 # - name: Add teams-for-linux repository (DEB822 format)  # ver. 2.15 only
 #   ansible.builtin.deb822_repository:
@@ -42,7 +42,7 @@
   ansible.builtin.get_url:
     url: https://repo.teamsforlinux.de/key.gpg
     dest: /usr/share/keyrings/teams-for-linux.gpg
-    mode: '0644'
+    mode: "0644"
 
 - name: Add teams-for-linux repository
   ansible.builtin.apt_repository:

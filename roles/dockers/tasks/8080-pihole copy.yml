@@ -7,33 +7,33 @@
     working_dir: "/opt/docker/"
     name: pihole
     ports:
-        - '53:53/tcp'
-        - '53:53/udp'
-        - '8080:80'
+      - "53:53/tcp"
+      - "53:53/udp"
+      - "8080:80"
     restart_policy: always
     env:
-        TZ: Europe/Berlin
-        #VIRTUAL_HOST: pihole.skyline.lan
-        #VIRTUAL_HOST: '{{hostname_additional_hosts[0].hostname}}'
-        #PROXY_LOCATION: '{{hostname_additional_hosts[0].hostname}}'
-        ServerIP: '{{hostname_additional_hosts[0].ip_address}}'
-        dns: '1.1.1.1'
-        WEBPASSWORD: '{{ansible_become_pass}}'  # change!
-        DNSSEC: 'true'
-        WEBTHEME: default-dark
+      TZ: Europe/Berlin
+      #VIRTUAL_HOST: pihole.skyline.lan
+      #VIRTUAL_HOST: '{{hostname_additional_hosts[0].hostname}}'
+      #PROXY_LOCATION: '{{hostname_additional_hosts[0].hostname}}'
+      ServerIP: "{{hostname_additional_hosts[0].ip_address}}"
+      dns: "1.1.1.1"
+      WEBPASSWORD: "{{ansible_become_pass}}" # change!
+      DNSSEC: "true"
+      WEBTHEME: default-dark
     volumes:
-        - '/opt/docker/pihole-8080/etc:/etc/pihole'
-        - '/opt/docker/pihole-8080/dnsmasq:/etc/dnsmasq.d'
+      - "/opt/docker/pihole-8080/etc:/etc/pihole"
+      - "/opt/docker/pihole-8080/dnsmasq:/etc/dnsmasq.d"
     #hostname: pihole.{{dckr_dmain_nme_pstfx}} # pihole.home.sawadogo.xyz
     #hostname: '{{hostname_additional_hosts[0].hostname}}'
-    hostname:  pihole.skyline.lan
-    image: 'pihole/pihole:latest'
+    hostname: pihole.skyline.lan
+    image: "pihole/pihole:latest"
   when: instl_docker_pckg and dckr_dpl_pihole
   tags:
     - assert
-    - #test
+    -  #test
 
-  
+
   # docker_container:
   #   name:  # required. Assign a name to a new container or match an existing container. When identifying an existing container name may be a name or a long or short container ID.
   #   auto_remove: False # not required. Enable auto-removal of the container on daemon side when the container's process exits.

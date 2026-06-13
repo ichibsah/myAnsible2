@@ -3,4 +3,4 @@
 # file: /etc/ansible/group_vars/boston
 #ntp_server: boston-time.example.com
 #vars_files:
-#  - ansible-vault.yml 
+#  - ansible-vault.yml

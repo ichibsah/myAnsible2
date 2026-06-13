@@ -3,19 +3,19 @@
 - name: Add nodes
   community.docker.docker_swarm:
     state: join
-    advertise_addr: '{{ hostname_additional_hosts[0].ip_address }}'
+    advertise_addr: "{{ hostname_additional_hosts[0].ip_address }}"
     join_token: "{{ joinToken }}"
-    remote_addrs: [ '217.160.100.209:2377' ]
+    remote_addrs: ["217.160.100.209:2377"]
 #
 # - name: Inspect swarm
 #   docker_swarm:
 #     state: inspect
 #   register: swarm_info
 # #
-# - name: Show results 
+# - name: Show results
 #   debug:
 #     var:  swarm_info
-#     verbosity: 3 
+#     verbosity: 3
 #
 # - name: Allow source IPs defined in ipset "swarm_nodes" on port 7946 and 4789
 #   ansible.builtin.iptables:
@@ -23,11 +23,11 @@
 #     match_set: swarm_nodes
 #     match_set_flags: src
 #     protocol: tcp
-#     destination_port: 
+#     destination_port:
 #       - "7946"  # TCP/UDP
 #       #- #4789  # UDP
 #     jump: ALLOW
-#   tags: 
+#   tags:
 #     - test
 # ipset
 #
@@ -43,11 +43,11 @@
       - 7946
     jump: ACCEPT
     #policy: ACCEPT
-  loop: 
+  loop:
     "{{ ipsets[0].set + ipsets[1].set }}"
     #"{{ ipsets[0].set + ipsets[1].set - hostname_additional_hosts[0].ip_address }}"
-  tags: 
-    - #test
+  tags:
+    -  #test
 #
 - name: Allow source IPs defined in ipset "swarm_nodes" on port 7946 (udp)
   ansible.builtin.iptables:
@@ -61,10 +61,9 @@
       - 7946
     jump: ACCEPT
     #policy: ACCEPT
-  loop: 
-    "{{ ipsets[0].set + ipsets[1].set }}"
-  tags: 
-    - #test
+  loop: "{{ ipsets[0].set + ipsets[1].set }}"
+  tags:
+    -  #test
 #
 - name: Allow source IPs defined in ipset "swarm_nodes" on port 4789
   ansible.builtin.iptables:
@@ -76,10 +75,9 @@
       - 4789
     jump: ACCEPT
     #policy: ACCEPT
-  loop: 
-    "{{ ipsets[0].set + ipsets[1].set }}"
-  tags: 
-    - #test
+  loop: "{{ ipsets[0].set + ipsets[1].set }}"
+  tags:
+    -  #test
 #
 # - name: Allow ALLOWLIST
 #   iptables:
@@ -93,8 +91,6 @@
   community.general.iptables_state:
     state: saved
     path: /etc/sysconfig/iptables
-
-
 #
 #
 #

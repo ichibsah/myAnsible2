@@ -1,4 +1,3 @@
-
 - name: SSH | Update resolv temp to allow update.
   lineinfile:
     dest: /etc/resolv.conf
@@ -12,9 +11,6 @@
     - regexp: "^nameserver 1.1.1.1"
       line: "nameserver 1.1.1.1"
   when: addresolv
-
-
-
 # lineinfile:
 #   path:  # required. The file to modify. Before Ansible 2.3 this option was only usable as I(dest), I(destfile) and I(name).
 #   regexp:  # not required. The regular expression to look for in every line of the file. For C(state=present), the pattern to replace if found. Only the last line found will be replaced. For C(state=absent), the pattern of the line(s) to remove. If the regular expression is not matched, the line will be added to the file in keeping with C(insertbefore) or C(insertafter) settings. When modifying a line the regexp should typically match both the initial state of the line as well as its state after replacement by C(line) to ensure idempotence. Uses Python regular expressions. See U(http://docs.python.org/2/library/re.html).

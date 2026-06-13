@@ -22,10 +22,10 @@
   when: instl_docker_pckg and dckr_dpl_rsume
   tags:
     - assert
-    - #test           
+    -  #test
 #
 #
-#  
+#
 # docker run -d --name=reactive_resume \
 # -p 5050:80 \
 # --restart always \

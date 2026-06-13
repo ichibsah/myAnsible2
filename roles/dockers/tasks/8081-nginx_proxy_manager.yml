@@ -37,10 +37,10 @@
   community.docker.docker_image:
     name: "{{ npm_image_name }}"
     tag: "{{ npm_image_tag }}"
-    source: pull              # Comment: Forces a pull from the registry
-    force_source: true        # Comment: Ensures we check for updates even if present locally
+    source: pull # Comment: Forces a pull from the registry
+    force_source: true # Comment: Ensures we check for updates even if present locally
   register: npm_image_pull
-  
+
   # Comment: This will set npm_image_pull.changed = true if a newer image was downloaded.
 
 # -----------------------------
@@ -50,7 +50,7 @@
   community.docker.docker_container_info:
     name: "{{ npm_container_name }}"
   register: npm_container_info
-  
+
   # Comment: We need this so we can stop/remove the container conditionally.
 
 # -------------------------------------------------------
@@ -120,9 +120,8 @@
     # ^ Comment: If new image was pulled, recreate the container to use it.
     pull: no
     # ^ Comment: We already explicitly pulled above; avoid implicit pulls here.
-  
-  # Comment: This preserves your original task’s behavior and only recreates when a new image is available.
 
+  # Comment: This preserves your original task’s behavior and only recreates when a new image is available.
 
   #promt:
 #   Got it, Ibrahim! Below is an idempotent, fully-commented Ansible task sequence that does exactly what you asked:
@@ -135,7 +134,6 @@
 # Removes the existing container,
 # Prunes dangling images (to delete the old image),
 # Then deploys your container with the new image.
-
 
 # If the image is the same, it does not recreate anything—just ensures your container is running as per your original spec.
 

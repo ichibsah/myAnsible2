@@ -1,5 +1,5 @@
 # - name: Find healthcheck URLs
-  
+
 # - name: Get the project badges
 #   community.healthchecksio.badges_info:
 #     state: present
@@ -95,7 +95,6 @@
 #     state: present
 #     uuid: "{{ check_uuid }}"
 #     signal: start
-
 
 #
 #

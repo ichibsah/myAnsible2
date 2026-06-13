@@ -9,7 +9,6 @@
   become: true
   roles:
     - bashrc
-
 # - name: BASHRC | Initialisation - LOCALHOST
 #   hosts: local
 #   ignore_errors: true

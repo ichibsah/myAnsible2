@@ -37,7 +37,7 @@
 #   become_user: root
 #   #gather_facts: true
 #   vars_files:
-#     - ansible-vault.yml 
+#     - ansible-vault.yml
 #   roles:
 #    - provisions
 #    - ssh
@@ -50,6 +50,6 @@
 #   become_user: root
 #   #gather_facts: true
 #   vars_files:
-#     - ansible-vault.yml 
+#     - ansible-vault.yml
 #   roles:
 #    #- apt-packages # 4a999ff should not be part of this hosts

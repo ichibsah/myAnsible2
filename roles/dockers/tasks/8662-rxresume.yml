@@ -17,7 +17,16 @@
           security_opt:
             - no-new-privileges:true
           healthcheck:
-            test: ["CMD", "pg_isready", "-q", "-d", "reresume", "-U", "reresumeuser"]
+            test:
+              [
+                "CMD",
+                "pg_isready",
+                "-q",
+                "-d",
+                "reresume",
+                "-U",
+                "reresumeuser",
+              ]
             interval: 10s
             timeout: 5s
             retries: 5
@@ -90,7 +99,7 @@
               condition: service_healthy
   when: instl_docker_pckg and dckr_dpl_rxrsum
   tags:
-    - #test              
+    -  #test
 #
 #
 #         youtubedl:

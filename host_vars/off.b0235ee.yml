@@ -5,8 +5,8 @@ hostname_additional_hosts:
   # - ip_address: 5.6.7.8
   #   hostname: b.example.com
   #   hostname_short: b
-    #
-apt_host_packages_list:                   # Install Host Specific Packages
+  #
+apt_host_packages_list: # Install Host Specific Packages
 #
 #
-instl_swrm_node: yes                                 # Install Docker swarm Service
+instl_swrm_node: yes # Install Docker swarm Service

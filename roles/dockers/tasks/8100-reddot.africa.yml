@@ -2,7 +2,7 @@
 #
 - name: Job 00 | Deploy reddot_africa - pull from git
   vars:
-    working_dir: "{{dckr_bs_pth}}/reddot_africa-8100/" 
+    working_dir: "{{dckr_bs_pth}}/reddot_africa-8100/"
     log_dir: "{{ working_dir }}logs"
     prg_name: "reddot_africa"
   ansible.builtin.git:
@@ -50,7 +50,7 @@
     state: absent
     project_name: "{{ prg_name }}"
     definition:
-      version: '3.9'
+      version: "3.9"
       services:
         reddot_africa:
           container_name: "{{con_name}}"
@@ -61,14 +61,14 @@
   vars:
     prg_name: "reddot_africa"
   docker_image:
-    name:  "{{ prg_name }}"
+    name: "{{ prg_name }}"
     force_absent: True
     state: absent
   when: changes_in_git_pull is changed
 #
 - name: Job 02 | Deploy reddot_africa - build image
   vars:
-    working_dir: "{{dckr_bs_pth}}/reddot_africa-8100/" 
+    working_dir: "{{dckr_bs_pth}}/reddot_africa-8100/"
     log_dir: "{{ working_dir }}logs"
     prg_name: "reddot_africa"
   community.docker.docker_image:
@@ -85,21 +85,21 @@
 #
 - name: Job 03 | Deploy reddot_africa - deploy container
   vars:
-    working_dir: "{{dckr_bs_pth}}/reddot_africa-8100/" 
+    working_dir: "{{dckr_bs_pth}}/reddot_africa-8100/"
     log_dir: "{{ working_dir }}logs"
     prg_name: "reddot_africa"
     con_name: "{{prg_name}}_con"
   community.docker.docker_compose:
     project_name: reddot_africa
     definition:
-      version: '3.9'
+      version: "3.9"
       services:
         reddot_africa:
           hostname: https://{{prg_name}}{{ dmain_pstfx }}"
           container_name: "{{con_name}}"
           image: "{{prg_name}}:latest"
           ports:
-            - 8100:8000 
+            - 8100:8000
           restart: always
           environment:
             - TZ=Europe/Berlin
@@ -113,16 +113,15 @@
   register: output
   tags:
     - assert
-    - #test
+    -  #test
 #
 - name: Verify that reddot_africa is running
   ansible.builtin.assert:
     that:
       - "output.services.reddot_africa.reddot_africa_con.state.running"
-      - #"output.services.mysql.ansiblemysql.state.running"
+      -  #"output.services.mysql.ansiblemysql.state.running"
   tags:
     - assert
-
 # # https://mariushosting.com/how-to-install-emby-on-your-synology-nas/
 
 # git:
@@ -185,7 +184,6 @@
 #   validate_certs: False # not required. Secure the connection to the API by using TLS and verifying the authenticity of the Docker host server. If the value is not specified in the task, the value of environment variable C(DOCKER_TLS_VERIFY) will be used instead. If the environment variable is not set, the default value will be used.
 #   debug: False # not required. Debug mode
 
-
 #
 # git:
 #   repo:  # required. git, SSH, or HTTP(S) protocol address of the git repository.
@@ -211,9 +209,6 @@
 #   separate_git_dir:  # not required. The path to place the cloned repository. If specified, Git repository can be separated from working tree.
 #   gpg_whitelist: [] # not required. A list of trusted GPG fingerprints to compare to the fingerprint of the GPG-signed commit. Only used when I(verify_commit=yes).
 
-
-
-
 #
 # github_key:
 #   token:  # required. GitHub Access Token with permission to list and create public keys.
@@ -221,7 +216,6 @@
 #   pubkey:  # not required. SSH public key value. Required when C(state=present).
 #   state: present # not required. choices: present;absent. Whether to remove a key, ensure that it exists, or update its value.
 #   force: yes # not required. The default is C(yes), which will replace the existing remote key if it's different than C(pubkey). If C(no), the key will only be set if no key with the given C(name) exists.
-
 
 #
 # github_deploy_key:

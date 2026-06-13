@@ -6,7 +6,7 @@
     dest: /etc/fail2ban/jail.local
   notify: Restart fail2ban
   when: upld_fail2bn_cfg
-  tags: 
+  tags:
     #- test
     - fail2ban
 
@@ -86,6 +86,6 @@
 #
 #How to Verify After Running
 #$ fail2ban-client get sshd ignoreip
-#sudo fail2ban-client status 
+#sudo fail2ban-client status
 #fail2ban-client set <jail> unbanip YOUR.IP.ADDRESS
 #
