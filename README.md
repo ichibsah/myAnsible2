@@ -52,3 +52,5 @@ Add a **project badge** at the top:
 ```md
 https://img.shields.io/badge/Automation-Ansible-red
 https://img.shields.io/badge/status-active-success
+
+![CI](https://github.com/ichibsah/myAnsible/actions/workflows/ansible.yml/badge.svg)

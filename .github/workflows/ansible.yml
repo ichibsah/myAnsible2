@@ -11,14 +11,17 @@ jobs:
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Install Python
+      - name: Setup Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.x'
 
-      - name: Install Ansible and tools
+      - name: Install roles
+        run: ansible-galaxy role install -r requirements.yml
+
+      - name: Install tools
         run: |
           pip install ansible ansible-lint yamllint
 
