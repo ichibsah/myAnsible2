@@ -5,19 +5,19 @@
       - xfce4
       - xfce4-goodies
     state: present
-    update_cache: yes
+    update_cache: true
 
 - name: Ensure xrdp service enabled
   systemd:
     name: xrdp
-    enabled: yes
+    enabled: true
     state: started
 
 - name: Add xrdp user to ssl-cert group (for TLS key access)
   user:
     name: xrdp
     groups: ssl-cert
-    append: yes
+    append: true
 
 - name: Configure XFCE session for all users
   copy:
@@ -48,7 +48,7 @@
     port: "3389"
     proto: tcp
   when: ansible_facts['os_family'] == "Debian"
-## optional task
+#  # optional task
 
 # - name: Copy TLS certificate
 #   copy:
@@ -85,18 +85,18 @@
 #     line: 'port=3390'
 #   notify: Restart xrdp
 
-# #
+#  #
 # - name: Allow only trusted IP
 #   ufw:
 #     rule: allow
 #     from_ip: "YOUR.IP.ADDR"
 #     port: 3389
 #     proto: tcp
-# #
+#  #
 # - name: Disable root login via RDP
 #   lineinfile:
 #     path: /etc/pam.d/xrdp-sesman
 #     line: "auth required pam_succeed_if.so user != root"
 
-# #
+#  #
 

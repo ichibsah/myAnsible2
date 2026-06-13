@@ -4,7 +4,7 @@
   gather_facts: true
   ignore_errors: true
   ignore_unreachable: true
-  #remote_user: root
+  # remote_user: root
   remote_user: ibrahim
   become: true
   become_user: root
@@ -15,8 +15,8 @@
   #   - requests
 
   roles:
-    #- provisions
-    #- ssh
+    # - provisions
+    # - ssh
     - proxmox
 # - name: PROVISIONS | First time Initialisation - LOCALHOST
 #   hosts: local

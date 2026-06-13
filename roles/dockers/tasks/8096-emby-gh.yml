@@ -2,11 +2,11 @@
 #
 - name: Job 00 | Deploy Emby
   community.docker.docker_compose:
-    #working_dir: "/opt/docker/emby-8096/"
-    #remove_images: all
-    #remove_volumes: True
-    #stopped: True
-    #state: absent
+    # working_dir: "/opt/docker/emby-8096/"
+    # remove_images: all
+    # remove_volumes: true
+    # stopped: true
+    # state: absent
     #
     project_name: emby_prj
     definition:
@@ -24,16 +24,16 @@
           restart: always
           environment:
             - TZ=Etc/UTC
-            #- UID=1000 # The UID to run emby as (default: 2)
-            #- GID=1000 # The GID to run emby as (default 2)
+            # - UID=1000  # The UID to run emby as (default: 2)
+            # - GID=1000  # The GID to run emby as (default 2)
           user: "${UID}:${GID}"
-          #user: "0:0" # root
+          # user: "0:0"  # root
           volumes:
             - /opt/docker/emby-8096/emby:/config
             - /mnt/4TB/mediafiles/mediaFiles/TV-Shows:/tvshows
             - /mnt/4TB/mediafiles/mediaFiles/Movies:/movies
-            #- /mnt/4TB/mediafiles:/data
-  #when: instl_docker_pckg and dckr_dpl_emby_gh
+            # - /mnt/4TB/mediafiles:/data
+  # when: instl_docker_pckg and dckr_dpl_emby_gh
   register: output
   tags:
     - assert
@@ -50,10 +50,10 @@
     that:
       - "output.services.emby.emby_con.state.running"
       -  #"output.services.mysql.ansiblemysql.state.running"
-  #when: instl_docker_pckg and dckr_dpl_emby
+  # when: instl_docker_pckg and dckr_dpl_emby
   tags:
     - assert
     -  #test
 
-# # https://mariushosting.com/how-to-install-emby-on-your-synology-nas/
+#  # https://mariushosting.com/how-to-install-emby-on-your-synology-nas/
 

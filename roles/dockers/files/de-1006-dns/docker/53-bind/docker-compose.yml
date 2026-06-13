@@ -4,7 +4,7 @@ services:
   bind9:
     container_name: dns-bind9
     image: ubuntu/bind9:latest
-    #image: internetsystemsconsortium/bind9:9.18
+    # image: internetsystemsconsortium/bind9:9.18
     environment:
       - BIND_USER=root
       - TZ=Europe/Berlin

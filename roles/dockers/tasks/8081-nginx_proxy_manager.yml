@@ -37,8 +37,8 @@
   community.docker.docker_image:
     name: "{{ npm_image_name }}"
     tag: "{{ npm_image_tag }}"
-    source: pull # Comment: Forces a pull from the registry
-    force_source: true # Comment: Ensures we check for updates even if present locally
+    source: pull  # Comment: Forces a pull from the registry
+    force_source: true  # Comment: Ensures we check for updates even if present locally
   register: npm_image_pull
 
   # Comment: This will set npm_image_pull.changed = true if a newer image was downloaded.
@@ -123,7 +123,7 @@
 
   # Comment: This preserves your original task’s behavior and only recreates when a new image is available.
 
-  #promt:
+  # promt:
 #   Got it, Ibrahim! Below is an idempotent, fully-commented Ansible task sequence that does exactly what you asked:
 
 # Pulls a fresh jc21/nginx-proxy-manager:latest image before deployment.

@@ -6,16 +6,16 @@
     log_dir: "{{ working_dir }}logs"
     prg_name: "gpt"
   ansible.builtin.git:
-    #repo: git@github.com:ichibsah/chatbot-ui.git #https://github.com/ichibsah/chatbot-ui.git
+    # repo: git@github.com:ichibsah/chatbot-ui.git  #https://github.com/ichibsah/chatbot-ui.git
     repo: https://github.com/ichibsah/chatbot-ui.git
-    #repo: https://github.com/mckaywrigley/chatbot-ui
+    # repo: https://github.com/mckaywrigley/chatbot-ui
     dest: "{{ working_dir }}"
-    force: yes
-    clone: yes
-    update: yes
+    force: true
+    clone: true
+    update: true
     remote: origin
-    key_file: /home/ibrahim/.ssh/id_rsa # file must exist on remote server
-    accept_hostkey: yes
+    key_file: /home/ibrahim/.ssh/id_rsa  # file must exist on remote server
+    accept_hostkey: true
   check_mode: false
   register: changes_in_git_pull
 #
@@ -25,7 +25,7 @@
     msg: "Directory is failed"
   when: changes_in_git_pull is failed
 
-- name: Run only if the task that registered the "result" variable succeeds # just the green color
+- name: Run only if the task that registered the "result" variable succeeds  # just the green color
   ansible.builtin.debug:
     msg: "Directory is succeeded"
   when: changes_in_git_pull is succeeded
@@ -47,8 +47,8 @@
     con_name: "{{prg_name}}_con"
   community.docker.docker_compose:
     remove_images: all
-    remove_volumes: True
-    stopped: True
+    remove_volumes: true
+    stopped: true
     state: absent
     project_name: "{{ prg_name }}"
     definition:
@@ -64,7 +64,7 @@
     prg_name: "gpt"
   docker_image:
     name: "{{ prg_name }}"
-    force_absent: True
+    force_absent: true
     state: absent
   when: changes_in_git_pull is changed
 #
@@ -105,15 +105,15 @@
           restart: always
           environment:
             - TZ=Europe/Berlin
-            #- OPENAI_API_KEY={{openai_api_key}}
+            # - OPENAI_API_KEY={{openai_api_key}}
             - OPENAI_API_KEY={{OPENAI_API_KEY}}
-          #user: "${UID}:${GID}"
-          #user: "0:0" # root
+          # user: "${UID}:${GID}"
+          # user: "0:0"  # root
           # volumes:
           #   - /opt/docker/emby-8096/emby:/config
           #   - /net/mediafiles/mediaFiles/TV-Shows:/tvshows
           #   - /net/mediafiles/mediaFiles/Movies:/movies
-  #when: changes_in_git_pull is changed or changes_in_git_pull is succeeded
+  # when: changes_in_git_pull is changed or changes_in_git_pull is succeeded
   register: output
   tags:
     - assert
@@ -131,6 +131,6 @@
 #
 # git clone https://github.com/ichibsah/chatbot-ui.git
 # cd chatbot-ui
-# #https://github.com/ichibsah/chatbot-ui.git
+#  #https://github.com/ichibsah/chatbot-ui.git
 # docker build -t chatgpt-ui .
 # docker run -d --restart=always -e OPENAI_API_KEY=OPENAI_API_KEY -p 3003:3000 chatgpt-ui

@@ -10,7 +10,7 @@
 #     mode: 0750
 #   when: crntb_activate_cronjobs
 #   tags:
-#     - #test
+#     -  #test
 
 - name: Crontab | copy crontab files others
   copy:
@@ -27,13 +27,13 @@
     user: root
     job: "/root/1min.sh > /dev/null 2>&1"
     state: present
-    backup: False
-    minute: "*/1" # Minute when the job should run ( 0-59, *, */2, etc )
-    hour: "*" # Hour when the job should run ( 0-23, *, */2, etc )
-    day: "*" # Day of the month the job should run ( 1-31, *, */2, etc )
-    month: "*" # Month of the year the job should run ( 1-12, *, */2, etc )
-    weekday: "*" # Day of the week that the job should run ( 0-6 for Sunday-Saturday, *, etc )
-    disabled: False # If the job should be disabled (commented out) in the crontab. Only has effect if C(state=present).
+    backup: false
+    minute: "*/1"  # Minute when the job should run ( 0-59, *, */2, etc )
+    hour: "*"  # Hour when the job should run ( 0-23, *, */2, etc )
+    day: "*"  # Day of the month the job should run ( 1-31, *, */2, etc )
+    month: "*"  # Month of the year the job should run ( 1-12, *, */2, etc )
+    weekday: "*"  # Day of the week that the job should run ( 0-6 for Sunday-Saturday, *, etc )
+    disabled: false  # If the job should be disabled (commented out) in the crontab. Only has effect if C(state=present).
   when: crntb_activate_cronjobs
   tags:
     -  #test
@@ -43,15 +43,15 @@
     name: "Starting CI/CD cronjob ansible.sh"
     user: ibrahim
     job: "bash /home/ibrahim/ansible.sh"
-    #job: "/root/ansible.sh > /dev/null 2>&1"
+    # job: "/root/ansible.sh > /dev/null 2>&1"
     state: present
-    backup: False
-    minute: "*/2" # Minute when the job should run ( 0-59, *, */2, etc )
-    hour: "*" # Hour when the job should run ( 0-23, *, */2, etc )
-    day: "*" # Day of the month the job should run ( 1-31, *, */2, etc )
-    month: "*" # Month of the year the job should run ( 1-12, *, */2, etc )
-    weekday: "*" # Day of the week that the job should run ( 0-6 for Sunday-Saturday, *, etc )
-    disabled: true # If the job should be disabled (commented out) in the crontab. Only has effect if C(state=present).
+    backup: false
+    minute: "*/2"  # Minute when the job should run ( 0-59, *, */2, etc )
+    hour: "*"  # Hour when the job should run ( 0-23, *, */2, etc )
+    day: "*"  # Day of the month the job should run ( 1-31, *, */2, etc )
+    month: "*"  # Month of the year the job should run ( 1-12, *, */2, etc )
+    weekday: "*"  # Day of the week that the job should run ( 0-6 for Sunday-Saturday, *, etc )
+    disabled: true  # If the job should be disabled (commented out) in the crontab. Only has effect if C(state=present).
   when: crntb_activate_cronjobs
 
 - name: Crontab | cronjob vernissage.sh
@@ -60,26 +60,26 @@
     user: ibrahim
     job: "python3 /home/ibrahim/vernissage.py"
     state: present
-    backup: False
-    minute: "*/2" # Minute when the job should run ( 0-59, *, */2, etc )
-    hour: "*" # Hour when the job should run ( 0-23, *, */2, etc )
-    day: "*" # Day of the month the job should run ( 1-31, *, */2, etc )
-    month: "*" # Month of the year the job should run ( 1-12, *, */2, etc )
-    weekday: "*" # Day of the week that the job should run ( 0-6 for Sunday-Saturday, *, etc )
-    disabled: true # If the job should be disabled (commented out) in the crontab. Only has effect if C(state=present).
+    backup: false
+    minute: "*/2"  # Minute when the job should run ( 0-59, *, */2, etc )
+    hour: "*"  # Hour when the job should run ( 0-23, *, */2, etc )
+    day: "*"  # Day of the month the job should run ( 1-31, *, */2, etc )
+    month: "*"  # Month of the year the job should run ( 1-12, *, */2, etc )
+    weekday: "*"  # Day of the week that the job should run ( 0-6 for Sunday-Saturday, *, etc )
+    disabled: true  # If the job should be disabled (commented out) in the crontab. Only has effect if C(state=present).
   when: crntb_actvt_crnjbs_vrnssg
 
 - name: Crontab | cronjob crntb_fldr_lst
   copy:
     src: "files/{{ansible_hostname}}/crontab"
-    #src: "files/{{item.fldr}}/crontab"
+    # src: "files/{{item.fldr}}/crontab"
     dest: "/opt/"
     owner: ibrahim
     group: ibrahim
     mode: 0744
-  #with_items:
-  #"{{ crntb_fldr_lst }}"
-  #when: crntb_fldr_lst.0 is defined
+  # with_items:
+  # "{{ crntb_fldr_lst }}"
+  # when: crntb_fldr_lst.0 is defined
   tags:
     -  #test
 #
@@ -89,13 +89,13 @@
     user: ibrahim
     job: "python3 /home/ibrahim/vernissage.py"
     state: absent
-    backup: False
-    minute: "*/2" # Minute when the job should run ( 0-59, *, */2, etc )
-    hour: "*" # Hour when the job should run ( 0-23, *, */2, etc )
-    day: "*" # Day of the month the job should run ( 1-31, *, */2, etc )
-    month: "*" # Month of the year the job should run ( 1-12, *, */2, etc )
-    weekday: "*" # Day of the week that the job should run ( 0-6 for Sunday-Saturday, *, etc )
-    disabled: true # If the job should be disabled (commented out) in the crontab. Only has effect if C(state=present).
+    backup: false
+    minute: "*/2"  # Minute when the job should run ( 0-59, *, */2, etc )
+    hour: "*"  # Hour when the job should run ( 0-23, *, */2, etc )
+    day: "*"  # Day of the month the job should run ( 1-31, *, */2, etc )
+    month: "*"  # Month of the year the job should run ( 1-12, *, */2, etc )
+    weekday: "*"  # Day of the week that the job should run ( 0-6 for Sunday-Saturday, *, etc )
+    disabled: true  # If the job should be disabled (commented out) in the crontab. Only has effect if C(state=present).
   when: not crntb_actvt_crnjbs_vrnssg
 # /****/
 
@@ -114,17 +114,17 @@
 #   name:  # not required. Description of a crontab entry or, if env is set, the name of environment variable. Required if C(state=absent). Note that if name is not set and C(state=present), then a new crontab entry will always be created, regardless of existing ones. This parameter will always be required in future releases.
 #   user:  # not required. The specific user whose crontab should be modified. When unset, this parameter defaults to using C(root).
 #   job:  # not required. The command to execute or, if env is set, the value of environment variable. The command should not contain line breaks. Required if C(state=present).
-#   state: absent # not required. choices: absent;present. Whether to ensure the job or environment variable is present or absent.
+#   state: absent  # not required. choices: absent;present. Whether to ensure the job or environment variable is present or absent.
 #   cron_file:  # not required. If specified, uses this file instead of an individual user's crontab. If this is a relative path, it is interpreted with respect to I(/etc/cron.d). If it is absolute, it will typically be I(/etc/crontab). Many linux distros expect (and some require) the filename portion to consist solely of upper- and lower-case letters, digits, underscores, and hyphens. To use the C(cron_file) parameter you must specify the C(user) as well.
-#   backup: False # not required. If set, create a backup of the crontab before it is modified. The location of the backup is returned in the C(backup_file) variable by this module.
-#   minute: * # not required. Minute when the job should run ( 0-59, *, */2, etc )
-#   hour: * # not required. Hour when the job should run ( 0-23, *, */2, etc )
-#   day: * # not required. Day of the month the job should run ( 1-31, *, */2, etc )
-#   month: * # not required. Month of the year the job should run ( 1-12, *, */2, etc )
-#   weekday: * # not required. Day of the week that the job should run ( 0-6 for Sunday-Saturday, *, etc )
-#   reboot: False # not required. If the job should be run at reboot. This option is deprecated. Users should use special_time.
-#   special_time: annually # not required. choices: annually;daily;hourly;monthly;reboot;weekly;yearly. Special time specification nickname.
-#   disabled: False # not required. If the job should be disabled (commented out) in the crontab. Only has effect if C(state=present).
-#   env: False # not required. If set, manages a crontab's environment variable. New variables are added on top of crontab. C(name) and C(value) parameters are the name and the value of environment variable.
+#   backup: false  # not required. If set, create a backup of the crontab before it is modified. The location of the backup is returned in the C(backup_file) variable by this module.
+#   minute: *  # not required. Minute when the job should run ( 0-59, *, */2, etc )
+#   hour: *  # not required. Hour when the job should run ( 0-23, *, */2, etc )
+#   day: *  # not required. Day of the month the job should run ( 1-31, *, */2, etc )
+#   month: *  # not required. Month of the year the job should run ( 1-12, *, */2, etc )
+#   weekday: *  # not required. Day of the week that the job should run ( 0-6 for Sunday-Saturday, *, etc )
+#   reboot: false  # not required. If the job should be run at reboot. This option is deprecated. Users should use special_time.
+#   special_time: annually  # not required. choices: annually;daily;hourly;monthly;reboot;weekly;yearly. Special time specification nickname.
+#   disabled: false  # not required. If the job should be disabled (commented out) in the crontab. Only has effect if C(state=present).
+#   env: false  # not required. If set, manages a crontab's environment variable. New variables are added on top of crontab. C(name) and C(value) parameters are the name and the value of environment variable.
 #   insertafter:  # not required. Used with C(state=present) and C(env). If specified, the environment variable will be inserted after the declaration of specified environment variable.
 #   insertbefore:  # not required. Used with C(state=present) and C(env). If specified, the environment variable will be inserted before the declaration of specified environment variable.

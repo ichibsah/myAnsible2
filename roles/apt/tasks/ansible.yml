@@ -4,7 +4,7 @@
     state: present
   loop: "{{apt_ansbl_pckg_lst}}"
   when: instl_ansbl_pckg
-  #tags: test
+  # tags: test
 #
 - name: Job 13 | Install ansible package using pip
   ansible.builtin.pip:
@@ -12,4 +12,4 @@
     state: present
   loop: "{{pip_ansbl_pckg_lst}}"
   when: instl_ansbl_pckg
-  #tags: test
+  # tags: test

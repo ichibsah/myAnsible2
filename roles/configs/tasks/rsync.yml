@@ -6,7 +6,7 @@
     checksum: true
     delete: false
     recursive: true
-  #delegate_to: "{{ inventory_hostname }}"
+  # delegate_to: "{{ inventory_hostname }}"
 #
 # - name: Synchronization of src on the control machine to dest on the remote hosts
 #   ansible.posix.synchronize:
@@ -94,17 +94,17 @@
 #     delete: true
 #     recursive: true
 
-# # This specific command is granted su privileges on the destination
+#  # This specific command is granted su privileges on the destination
 # - name: Synchronize using an alternate rsync command
 #   ansible.posix.synchronize:
 #     src: some/relative/path
 #     dest: /some/absolute/path
 #     rsync_path: su -c rsync
 
-# # Example .rsync-filter file in the source directory
-# # - var       # exclude any path whose last part is 'var'
-# # - /var      # exclude any path starting with 'var' starting at the source directory
-# # + /var/conf # include /var/conf even though it was previously excluded
+#  # Example .rsync-filter file in the source directory
+#  # - var       # exclude any path whose last part is 'var'
+#  # - /var      # exclude any path starting with 'var' starting at the source directory
+#  # + /var/conf  # include /var/conf even though it was previously excluded
 
 # - name: Synchronize passing in extra rsync options
 #   ansible.posix.synchronize:
@@ -114,14 +114,14 @@
 #       - "--no-motd"
 #       - "--exclude=.git"
 
-# # Hardlink files if they didn't change
+#  # Hardlink files if they didn't change
 # - name: Use hardlinks when synchronizing filesystems
 #   ansible.posix.synchronize:
 #     src: /tmp/path_a/foo.txt
 #     dest: /tmp/path_b/foo.txt
 #     link_dest: /tmp/path_a/
 
-# # Specify the rsync binary to use on remote host and on local host
+#  # Specify the rsync binary to use on remote host and on local host
 # - hosts: groupofhosts
 #   vars:
 #     ansible_rsync_path: /usr/gnu/bin/rsync

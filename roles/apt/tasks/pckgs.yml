@@ -8,7 +8,7 @@
 # Update package cache (APT/YUM/DNF supported)
 - name: Update package cache
   package:
-    update_cache: yes
+    update_cache: true
   when: ansible_os_family in ['Debian', 'RedHat']
 
 # Install default packages dynamically
@@ -67,7 +67,7 @@
   systemd:
     name: "{{ item }}"
     state: started
-    enabled: yes
+    enabled: true
   loop: "{{ apt_strt_srvc_lst }}"
   when: sysd_strt_srvc
 
@@ -76,7 +76,7 @@
   systemd:
     name: "{{ item }}"
     state: started
-    enabled: yes
+    enabled: true
   loop: "{{ apt_hst_strt_srvc_lst | default([]) }}"
   when: apt_hst_strt_srvc_lst | length > 0
 

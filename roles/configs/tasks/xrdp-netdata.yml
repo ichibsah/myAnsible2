@@ -22,7 +22,7 @@
 - name: Enable and start Netdata
   systemd:
     name: netdata
-    enabled: yes
+    enabled: true
     state: started
 
 # --------------------------------------------------
@@ -47,7 +47,7 @@
     dest: /usr/local/bin/fail2ban-status
     mode: "0755"
     content: |
-      #!/bin/bash
+      # !/bin/bash
       echo "=== Fail2ban Status ==="
       fail2ban-client status xrdp
       echo ""
@@ -62,26 +62,26 @@
     dest: /usr/local/bin/xrdp-logs
     mode: "0755"
     content: |
-      #!/bin/bash
+      # !/bin/bash
       echo "=== XRDP LOG ==="
       tail -n 50 /var/log/xrdp.log
       echo ""
       echo "=== XRDP SESSIONS ==="
       who
-# #
-# # http://YOUR_SERVER_IP:19999
+#  #
+#  # http://YOUR_SERVER_IP:19999
 # - name: Restrict Netdata access
 #   shell: |
 #     iptables -A INPUT -p tcp --dport 19999 -s YOUR.IP.ADDR -j ACCEPT
 #     iptables -A INPUT -p tcp --dport 19999 -j DROP
 
-# #Check XRDP log live
+#  #Check XRDP log live
 # xrdp-logs
 
-# # Check fail2ban bans
+#  # Check fail2ban bans
 # fail2ban-status
 
-# #Watch logs live
+#  #Watch logs live
 # journalctl -u xrdp -f
 #
 - name: Add Microsoft GPG key
@@ -99,7 +99,7 @@
 - name: Install VS Code
   apt:
     name: code
-    update_cache: yes
+    update_cache: true
     state: present
 
 #
@@ -136,6 +136,6 @@
 - name: Install Google Chrome
   apt:
     name: google-chrome-stable
-    update_cache: yes
+    update_cache: true
     state: present
 #

@@ -24,7 +24,7 @@
   ansible.windows.win_updates:
     category_names: "*"
     reboot: false
-    #state: install
+    # state: install
     reboot_timeout: 3600
     log_path: "{{logpath}}\\job-1003-{{filename}}"
 # - name: Run a command under a non-Powershell interpreter (cmd in this case)
@@ -76,21 +76,21 @@
 #     script: |
 #       echo "Hello World"
 
-# # Install/uninstall with chocolatey
+#  # Install/uninstall with chocolatey
 # - name: Ensure 7-Zip is installed via Chocolatey
 #   win_chocolatey:
 #     name: 7zip
 #     state: present
 
-# - name: Check powershell version # works
+# - name: Check powershell version  # works
 #   ansible.windows.win_shell: Get-Host | Select-Object Version
 
-# - name:  Check powershell version # works
+# - name:  Check powershell version  # works
 #   ansible.windows.win_shell: Get-Host | Select-Object Version
 #   args:
 #     executable: powershell
 
-# # Install/uninstall with chocolatey
+#  # Install/uninstall with chocolatey
 # - name: Ensure 7-Zip is installed via Chocolatey
 #   win_chocolatey:
 #     name: 7zip
@@ -161,7 +161,7 @@
 #     - Windows Malicious Software Removal Tool for Windows
 #     - \d{4}-\d{2} Cumulative Update for Windows Server 2016
 
-# # Optionally, you can increase the reboot_timeout to survive long updates during reboot
+#  # Optionally, you can increase the reboot_timeout to survive long updates during reboot
 # - name: Ensure we wait long enough for the updates to be applied during reboot
 #   ansible.windows.win_updates:
 #     reboot: true

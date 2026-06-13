@@ -1,10 +1,10 @@
 - name: Job 00 | Deploy Tubesync
   community.docker.docker_compose:
-    #working_dir: "/opt/docker/youtubedl-8084/"
-    #remove_images: all
-    #remove_volumes: True
-    #stopped: True
-    #state: absent
+    # working_dir: "/opt/docker/youtubedl-8084/"
+    # remove_images: all
+    # remove_volumes: true
+    # stopped: true
+    # state: absent
     #
     project_name: YoutubeDl
     definition:
@@ -44,7 +44,7 @@
     - assert
     -  #test
 
-# # https://mariushosting.com/how-to-install-tubesync-on-your-synology-nas/
+#  # https://mariushosting.com/how-to-install-tubesync-on-your-synology-nas/
 
 # docker run -d --name=youtube_downloader \
 # -p 8084:17442 \

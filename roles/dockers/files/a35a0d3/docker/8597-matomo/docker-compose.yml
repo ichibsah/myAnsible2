@@ -26,4 +26,4 @@ services:
     restart: always
 
 volumes:
-  mariadb: # matomo
+  mariadb:  # matomo

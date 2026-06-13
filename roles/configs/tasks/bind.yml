@@ -5,6 +5,6 @@
     owner: root
     group: bind
     mode: 0644
-  #when: ansible_hostname != 'virthost01'
+  # when: ansible_hostname != 'virthost01'
   notify: Restart bind9
-  #tags: test
+  # tags: test

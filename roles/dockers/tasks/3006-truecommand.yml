@@ -7,7 +7,7 @@
 # docker pull ixsystems/truecommand
 # docker run --detach -v "[hostdirectory]:/data" -p [portnumber]:80 -p [sslportnumber]:443 ixsystems/truecommand
 
-#- name: create new volume
+# - name: create new volume
 #  community.docker.docker_volume:
 #    name: portainer-data
 #

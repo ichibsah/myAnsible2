@@ -75,7 +75,7 @@
               restart: always
               environment:
                 - "TZ={{ uk_timezone }}"
-              user: "0:0" # root
+              user: "0:0"  # root
               volumes:
                 - "{{ working_dir }}uptimekuma:/app/data"
                 - "/var/run/docker.sock:/var/run/docker.sock"

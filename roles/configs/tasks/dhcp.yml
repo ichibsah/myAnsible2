@@ -1,4 +1,4 @@
-#TODO find a way to test if folder exist first
+# TODO find a way to test if folder exist first
 - name: Job 01.1.2 | Copy dhcp folder to target host that matches ansible_hostname
   copy:
     src: "files/{{ansible_hostname}}/etc/dhcp"
@@ -17,13 +17,13 @@
     regexp: "{{ item.regexp }}"
     line: "{{ item.line }}"
     state: present
-    #validate: 'sshd -t -f %s'
-    #validate: 'dhcpd -t -cf %s'
+    # validate: 'sshd -t -f %s'
+    # validate: 'dhcpd -t -cf %s'
   with_items:
     - regexp: "^INTERFACESv4"
       line: "{{dsbl_dhcpvsx_regx}}"
     # - regexp: "^PermitRootLogin"
-    # dsbl_dhcpvsx: yes
+    # dsbl_dhcpvsx: true
     # dsbl_dhcpvsx_regx: INTERFACESv4='ens18'        # Disable dhcp v6
     #   line: "PermitRootLogin no"
     # - regexp: "^Port"

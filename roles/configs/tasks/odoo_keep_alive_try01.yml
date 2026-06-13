@@ -18,10 +18,10 @@
           password: "secret2",
         }
 
-    login_method: basic # or 'form' (see the form settings below)
+    login_method: basic  # or 'form' (see the form settings below)
     validate_certs: true
     connection_timeout: 10
-    expected_status_codes: [200] # OK only
+    expected_status_codes: [200]  # OK only
 
     # Optional reporting
     write_report: true
@@ -101,7 +101,7 @@
       loop_control:
         label: "{{ item.url }}"
       register: login_results
-      failed_when: false # Never stop the loop; continue gathering statuses
+      failed_when: false  # Never stop the loop; continue gathering statuses
       changed_when: false
 
     - name: "Build a compact summary list"

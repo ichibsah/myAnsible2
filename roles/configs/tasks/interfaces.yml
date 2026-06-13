@@ -1,15 +1,15 @@
-# #
+#  #
 # - name: Job 01.3.1 | Update network configuration.
 #   interfaces_file:
 #     dest: /etc/network/interfaces
 #     iface:  "{{interfaces.iface}}"
-#     backup: yes
+#     backup: true
 #     state: present
 #     mode: 0644
 #     owner: root
 #     group: root
 #
-#- name: Job 01.3.1 | Update network configuration.
+# - name: Job 01.3.1 | Update network configuration.
 # lineinfile:
 #   dest: /etc/network/interfaces
 #   regexp: "{{ item.regexp }}"
@@ -33,7 +33,7 @@
 #   #   line: "AllowAgentForwarding yes"
 # notify: Restart dhcp
 # when: dsbl_dhcpvsx
-# #tags: test
+#  #tags: test
 #
 - name: Job 01.7.3 | Copy network folder to target host that matches "ansible_hostname"
   copy:
@@ -42,11 +42,11 @@
     owner: root
     group: root
     mode: 0644
-  #when: ansible_hostname != 'virthost01'
+  # when: ansible_hostname != 'virthost01'
   notify:
     - Restart networking
     - Restart docker
-  #tags: test
+  # tags: test
   #
   #
 # - name: Deploy network interfaces configuration
@@ -65,7 +65,7 @@
 - name: Deploy network interfaces configuration
   template:
     src: interfaces.j2
-    dest: /etc/network/interfaces # come into me, my precioussssss
+    dest: /etc/network/interfaces  # come into me, my precioussssss
     owner: root
     group: root
     mode: "0644"

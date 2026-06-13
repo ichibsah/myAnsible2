@@ -5,3 +5,5 @@ rules:
   indentation:
     spaces: 2
   trailing-spaces: enable
+  truthy:
+    allowed-values: ['true', 'false', 'yes', 'no']

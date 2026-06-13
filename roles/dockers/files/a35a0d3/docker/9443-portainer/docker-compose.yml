@@ -1,7 +1,7 @@
 version: "3.3"
 services:
   portainer-ce:
-    #replica: 3
+    # replica: 3
     container_name: portainer
     ports:
       - "8000:8000"

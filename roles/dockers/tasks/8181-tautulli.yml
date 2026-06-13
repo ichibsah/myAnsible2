@@ -1,11 +1,11 @@
 ---
 - name: Job 00 | Deploy Tautulli
   community.docker.docker_compose:
-    #working_dir: "/opt/docker/tautulli-8181/"
-    #remove_images: all
-    #remove_volumes: True
-    #stopped: True
-    #state: absent
+    # working_dir: "/opt/docker/tautulli-8181/"
+    # remove_images: all
+    # remove_volumes: true
+    # stopped: true
+    # state: absent
     #
     project_name: Tautulli
     definition:
@@ -21,8 +21,8 @@
           environment:
             - TZ=Europe/Berlin
           user: "${UID}:${GID}"
-          #user: "0:0" # root
-          #user: "1354601103:1354600513" # ibrahim@skyline
+          # user: "0:0"  # root
+          # user: "1354601103:1354600513"  # ibrahim@skyline
           volumes:
             - /opt/docker/tautulli-8181/config:/config
   when: instl_docker_pckg and dckr_dpl_tautulli
@@ -47,7 +47,7 @@
     - assert
     -  #test
 
-# # https://mariushosting.com/how-to-install-gravity-on-your-synology-nas/
+#  # https://mariushosting.com/how-to-install-gravity-on-your-synology-nas/
 
 # docker run -d \
 #   --name=tautulli \

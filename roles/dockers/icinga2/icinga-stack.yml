@@ -84,7 +84,7 @@ services:
     entrypoint: []
     logging: *default-logging
     image: icinga/icingaweb2
-    #restart: on-failure
+    # restart: on-failure
     volumes:
       - icingaweb:/data
     #
@@ -172,7 +172,7 @@ services:
       - 8080:8080
     # Restart Icinga Web container automatically since we have to wait for the database to be ready.
     # Please note that this needs a more sophisticated solution.
-    #restart: on-failure
+    # restart: on-failure
     volumes:
       - icingaweb:/data
     #

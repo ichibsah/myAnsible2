@@ -1,11 +1,11 @@
 - name: Job 00 | Deploy whats-up-docker
   community.docker.docker_compose:
-    #working_dir: "/opt/docker/wud-3555/"
-    #working_dir: "{{dckr_bs_pth}}/wud-3555/"
-    #remove_images: all
-    #remove_volumes: True
-    #stopped: True
-    #state: absent
+    # working_dir: "/opt/docker/wud-3555/"
+    # working_dir: "{{dckr_bs_pth}}/wud-3555/"
+    # remove_images: all
+    # remove_volumes: true
+    # stopped: true
+    # state: absent
     #
     project_name: whats-up-docker
     definition:

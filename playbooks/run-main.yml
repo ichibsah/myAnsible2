@@ -20,15 +20,15 @@
 - name: 6001 | Play run-otds.yml
   import_playbook: run-otds.yml
 #
-#- name: MAIN | Play run-plesk.yml
+# - name: MAIN | Play run-plesk.yml
 #  import_playbook: run-plesk.yml
 #
 # its important that changes to hostnames should be done last.
 - name: 9901 | Play run-hostname.yml
   import_playbook: run-hostname.yml
-##
+#  #
 #
-##
+#  #
 #
 #
 # - hosts: allservers
@@ -43,7 +43,7 @@
 #    - ssh
 #    - dockers
 
-# #- meta: refresh_inventory
+#  #- meta: refresh_inventory
 # - hosts: cloud
 #   remote_user: ibrahim
 #   ##become: true
@@ -52,4 +52,4 @@
 #   vars_files:
 #     - ansible-vault.yml
 #   roles:
-#    #- apt-packages # 4a999ff should not be part of this hosts
+#    #- apt-packages  # 4a999ff should not be part of this hosts

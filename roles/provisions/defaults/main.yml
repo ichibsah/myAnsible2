@@ -1,27 +1,27 @@
 ---
 # defaults file for provisions
 #
-default_timezone: Europe/Berlin # default timezone
-default_locale: en_GB.UTF-8 # default locale
+default_timezone: Europe/Berlin  # default timezone
+default_locale: en_GB.UTF-8  # default locale
 locale_lang: en_GB.UTF-8
-default_lang: en_GB.UTF-8 # default language
-prvs_copy_home: yes # Copy default user's home files in place
-prvs_root_passwd: no # update root passward
-addLocalUser: no # add a local user to specific host
-instl_gthb_ky: no # add id_rsa to only ibrahim to allow local server access to git
+default_lang: en_GB.UTF-8  # default language
+prvs_copy_home: true  # Copy default user's home files in place
+prvs_root_passwd: no  # update root passward
+addLocalUser: no  # add a local user to specific host
+instl_gthb_ky: no  # add id_rsa to only ibrahim to allow local server access to git
 # instl_docker_pckg and instl_gthb_ky
-#ansible_become_pass: '{{ localhost_become_pass }}'
+# ansible_become_pass: '{{ localhost_become_pass }}'
 #
 users:
   - name: root
     shell: /bin/bash
     groups:
       - docker
-    append: True
+    append: true
     state: present
     key: root.pub
-    create_home: True
-    local: True
+    create_home: true
+    local: true
     hosts: all
   - name: ibrahim
     shell: /bin/bash
@@ -29,11 +29,11 @@ users:
       - adm
       - sudo
       - docker
-    append: True
+    append: true
     state: present
     key: ibrahim.pub
-    create_home: True
-    local: True
+    create_home: true
+    local: true
     hosts: all
 #
 # localusers:
@@ -41,10 +41,10 @@ users:
 #     shell:
 #     groups:
 #       -
-#     append: True
+#     append: true
 #     state:
 #     key:
-#     create_home: True
-#     local: True
+#     create_home: true
+#     local: true
 #     hosts: de-1005-gw
-#   - #
+#   -  #

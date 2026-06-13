@@ -2,11 +2,11 @@
 #
 - name: Job 00 | Deploy Emby
   community.docker.docker_compose:
-    #working_dir: "/opt/docker/emby-8096/"
-    #remove_images: all
-    #remove_volumes: True
-    #stopped: True
-    #state: absent
+    # working_dir: "/opt/docker/emby-8096/"
+    # remove_images: all
+    # remove_volumes: true
+    # stopped: true
+    # state: absent
     #
     project_name: Emby
     definition:
@@ -25,7 +25,7 @@
           environment:
             - TZ=Europe/Berlin
           user: "${UID}:${GID}"
-          #user: "0:0" # root
+          # user: "0:0"  # root
           volumes:
             - /opt/docker/emby-8096/emby:/config
             - /net/mediafiles/mediaFiles/TV-Shows:/tvshows
@@ -52,5 +52,5 @@
     - assert
     -  #test
 
-# # https://mariushosting.com/how-to-install-emby-on-your-synology-nas/
+#  # https://mariushosting.com/how-to-install-emby-on-your-synology-nas/
 

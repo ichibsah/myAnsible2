@@ -4,9 +4,9 @@
   ansible.builtin.include_vars:
     file: defaults/rustdesk.yml
 
-################################################################################
+#  ###############################################################################
 # STEP 1 — Pull fresh image and check whether it differs from the current one
-################################################################################
+#  ###############################################################################
 
 # Pull the latest image from registry without running containers yet
 - name: Pull latest rustdesk image
@@ -27,9 +27,9 @@
   ansible.builtin.set_fact:
     image_changed: "{{ (current_image.images | length > 0) and (new_image.image.Id != current_image.images[0].Id) }}"
 
-################################################################################
+#  ###############################################################################
 # STEP 2 — If image changed: stop & remove containers + remove old image
-################################################################################
+#  ###############################################################################
 
 - name: Stop existing containers (only if image updated)
   community.docker.docker_compose:
@@ -52,9 +52,9 @@
   when: image_changed
   ignore_errors: true
 
-################################################################################
+#  ###############################################################################
 # STEP 3 — Deploy your RustDesk containers using docker_compose definition
-################################################################################
+#  ###############################################################################
 
 - name: Job 03 | Deploy rustdesk | deploy container
   vars:
@@ -90,9 +90,9 @@
           restart: unless-stopped
   register: output
 
-################################################################################
+#  ###############################################################################
 # STEP 4 — Verify services started successfully
-################################################################################
+#  ###############################################################################
 
 - name: Verify that rustdesk containers are running
   ansible.builtin.assert:
@@ -103,7 +103,7 @@
     success_msg: "RustDesk containers are running successfully."
   tags:
     - assert
-################################################################################
+#  ###############################################################################
 # Notes:
 #
 # Required ports:
@@ -116,4 +116,4 @@
 #   21117 TCP – Relay service
 #   21119 TCP – web clients
 #
-################################################################################
+#  ###############################################################################

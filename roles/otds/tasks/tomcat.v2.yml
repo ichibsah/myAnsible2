@@ -1,5 +1,5 @@
 ---
-#https://medium.com/@ranmalsl/ansible-how-to-automate-tomcat-package-deployment-cf0c474ee0af
+# https://medium.com/@ranmalsl/ansible-how-to-automate-tomcat-package-deployment-cf0c474ee0af
 
     - name: check if file exists
       stat:
@@ -13,7 +13,7 @@
 
       - name: Rename ear file to war
         copy:
-          src: "{{ package_path }}/{{ old_filename | regex_replace( '.ear','.war') }}"  
+          src: "{{ package_path }}/{{ old_filename | regex_replace( '.ear','.war') }}"
           dest: "{{ package_path }}/{{ filename }}.war"
 
       - name: Check available directories
@@ -22,37 +22,37 @@
           patterns: "*-INF"
           file_type: directory
           recurse: no
-        register: directories_to_delete 
+        register: directories_to_delete
 
       - name: Remove INF directories which are not necessary for the deployment
         file:
           path: "{{ item.path }}"
           state: absent
         with_items:
-          - "{{ directories_to_delete.files }}" 
+          - "{{ directories_to_delete.files }}"
 
-      - name: Remove "{{ old_filename }}" 
+      - name: Remove "{{ old_filename }}"
         file:
           path: "{{ package_path }}/{{ old_filename }}"     # remove ear file after extracting
           state: absent
 
       when: file.stat.exists == true
 
-###
+#  ##
 
   - systemd:
       name: "{{ common_service }}"
-      state: stopped 
+      state: stopped
 
   - name: backup catalina.out
     copy:
       src: "{{ common_path }}/logs/catalina.out"
       dest: "{{ common_path }}/logs/catalina.out.ansible.{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
-      remote_src: yes
-    ignore_errors: yes    # if log is not available play will run without breaking the execution
+      remote_src: true
+    ignore_errors: true    # if log is not available play will run without breaking the execution
 
   - name: Remove catalina.out
     file:
       path: "{{ common_path }}/logs/catalina.out"
       state: absent
-    ignore_errors: yes    # if log is not available play will run without breaking the execution
+    ignore_errors: true    # if log is not available play will run without breaking the execution

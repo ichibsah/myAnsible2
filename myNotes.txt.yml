@@ -49,8 +49,8 @@ include params
 
 extra vars (for example, -e "user=my_user")(always win precedence)
 
-#Variables
-#https://docs.ansible.com/ansible/latest/reference_appendices/general_precedence.html#general-precedence-rules
+# Variables
+# https://docs.ansible.com/ansible/latest/reference_appendices/general_precedence.html#general-precedence-rules
 - hosts: cloud
   gather_facts: false
   become: true
