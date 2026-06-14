@@ -18,4 +18,5 @@ echo "Logging ansible output to $LOGFILE"
 # ansible-playbook -v --limit '!gh-servers !localhost' run-dockers.yml 2>&1 | tee -a "$LOGFILE"
 # ansible-playbook -v run-dockers.yml # works
 # ansible-playbook -v -i inventories/staging/hosts.yml playbooks/run-dockers.yml 2>&1 | tee -a "$LOGFILE"
-ansible-playbook -v -i inventories/staging/hosts.yml playbooks/run-dockers.yml
+# ansible-playbook -v -i inventories/staging/hosts.yml playbooks/run-dockers.yml
+ansible-playbook -v -i inventories/staging/hosts.yml playbooks/run-dockers2.yml

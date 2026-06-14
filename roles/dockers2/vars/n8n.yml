@@ -1,0 +1,23 @@
+# Image settings
+n8n_image_name: "docker.n8n.io/n8nio/n8n"
+n8n_image_tag: "latest"
+n8n_image_full: "{{ n8n_image_name }}:{{ n8n_image_tag }}"
+
+# Container settings
+n8n_container_name: "n8n"
+
+# Ports
+n8n_ports:
+  - "5678:5678"
+
+# Volumes
+n8n_volume_name: "n8n_data"
+n8n_volume_mount: "/home/node/.n8n"
+
+# Docker volume host path (optional if you want bind instead)
+n8n_data_dir: "n8n_data"
+
+# Runtime options
+n8n_restart_policy: "unless-stopped"
+n8n_tty: true
+n8n_stdin_open: true

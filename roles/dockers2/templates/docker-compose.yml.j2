@@ -1,0 +1,24 @@
+version: "3.9"
+
+services:
+  {{ item.key }}:
+    image: {{ item.value.image }}
+    container_name: {{ item.value.container_name }}
+
+    ports:
+      - "{{ item.value.port }}"
+
+    restart: {{ item.value.restart }}
+
+    environment:
+{% for env in item.value.env | default([]) %}
+      - {{ env }}
+{% endfor %}
+
+    volumes:
+      - {{ item.value.config_dir }}:/config
+
+{% if item.value.healthcheck is defined %}
+    healthcheck:
+{{ item.value.healthcheck | to_nice_yaml(indent=6) }}
+{% endif %}

@@ -1,0 +1,21 @@
+- name: Create backup folder
+  file:
+    path: "{{ item.value.config_dir }}_backup"
+    state: directory
+
+- name: Archive config
+  archive:
+    path: "{{ item.value.config_dir }}"
+    dest: "{{ item.value.config_dir }}_backup/{{ item.key }}_{{ ansible_date_time.iso8601 }}.tar.gz"
+
+- name: Remove old backups
+  find:
+    paths: "{{ item.value.config_dir }}_backup"
+    age: "{{ backup_retention_days }}d"
+  register: old_backups
+
+- name: Delete old backups
+  file:
+    path: "{{ item.path }}"
+    state: absent
+  loop: "{{ old_backups.files }}"

@@ -1,0 +1,5 @@
+- name: Restore backup
+  unarchive:
+    src: "{{ restore_file }}"
+    dest: "{{ restore_path }}"
+    remote_src: true

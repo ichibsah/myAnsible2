@@ -1,0 +1,61 @@
+- name: Pull image
+  community.docker.docker_image:
+    name: "{{ item.value.image }}"
+    source: pull
+    force_source: true
+  register: app_image_pull
+
+- name: Container info
+  community.docker.docker_container_info:
+    name: "{{ item.value.container_name }}"
+  register: app_ct_info
+
+- name: Backup before update
+  include_tasks: backup.yml
+  when:
+    - app_image_pull.changed
+    - app_ct_info.exists | default(false)
+
+- name: Remove container if needed
+  community.docker.docker_container:
+    name: "{{ item.value.container_name }}"
+    state: absent
+    force_kill: true
+  when:
+    - app_image_pull.changed
+    - app_ct_info.exists | default(false)
+
+- name: Deploy compose
+  community.docker.docker_compose:
+    project_name: "{{ item.key }}"
+    recreate: "{{ 'always' if app_image_pull.changed else 'never' }}"
+    definition:
+      version: '3.9'
+      services:
+        "{{ item.key }}":
+          image: "{{ item.value.image }}"
+          container_name: "{{ item.value.container_name }}"
+          ports:
+            - "{{ item.value.port }}"
+          restart: "{{ item.value.restart }}"
+          environment: "{{ item.value.env }}"
+          volumes:
+            - "{{ item.value.config_dir }}:/config"
+          healthcheck: "{{ item.value.healthcheck | default(omit) }}"
+  register: app_compose_out
+
+- name: Wait for health
+  ansible.builtin.pause:
+    seconds: 10
+
+- name: Notify Telegram
+  uri:
+    url: "https://api.telegram.org/bot{{ telegram_token }}/sendMessage"
+    method: POST
+    body_format: json
+    body:
+      chat_id: "{{ telegram_chat_id }}"
+      text: "{{ item.key }} updated"
+  when:
+    - telegram_enabled
+    - app_image_pull.changed

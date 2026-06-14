@@ -86,3 +86,8 @@ xrdp: true  # Install and configure xrdp
 #     shell: /bin/bash
 #     groups: sudo
 #  #
+media_apps:
+  overseerr:
+    enabled: true
+  seerr:
+    enabled: false

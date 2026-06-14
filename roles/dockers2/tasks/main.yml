@@ -1,0 +1,6 @@
+- name: Deploy apps
+  include_tasks: deploy.yml
+  loop: "{{ media_apps | dict2items }}"
+  loop_control:
+    label: "{{ item.key }}"
+  when: item.value.enabled
