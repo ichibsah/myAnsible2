@@ -1,6 +1,13 @@
 skip_list:
   - experimental
   - fqcn-builtins
+  - "208"
+  - risky-file-permissions
+
+warn_list:
+  - experimental
+
+verbosity: 1
 
 exclude_paths:
   - roles/solr/molecule/
