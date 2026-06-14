@@ -9,8 +9,8 @@
   become: true
   become_user: root
   roles:
-    - provisions
-    - ssh
+    - roles/provisions
+    - roles/ssh
 # - name: PROVISIONS | First time Initialisation - LOCALHOST
 #   hosts: local
 #   ignore_errors: true
@@ -21,8 +21,8 @@
 #   become: true
 #   become_user: root
 #   roles:
-#     - provisions
-#     - ssh
+#     - roles/provisions
+#     - roles/ssh
 
 # - name: PROVISIONS | First time Initialisation - VMS
 #   hosts: vms
@@ -32,7 +32,7 @@
 #   become: true
 #   become_user: root
 #   roles:
-#     - provisions
-#     - ssh
+#     - roles/provisions
+#     - roles/ssh
 
 # complete, tested and working
