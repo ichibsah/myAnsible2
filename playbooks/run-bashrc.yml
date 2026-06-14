@@ -8,7 +8,7 @@
   # become: false
   become: true
   roles:
-    - bashrc
+    - ../roles/bashrc
 # - name: BASHRC | Initialisation - LOCALHOST
 #   hosts: local
 #   ignore_errors: true

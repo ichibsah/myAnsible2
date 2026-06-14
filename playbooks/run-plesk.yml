@@ -28,7 +28,7 @@
   hosts: plesk_install
   remote_user: root
   roles:
-    - plesk
+    - ../roles/plesk
 # sh <(curl https://autoinstall.plesk.com/one-click-installer || wget -O - https://autoinstall.plesk.com/one-click-installer)
 
 # admin_password: changeme
