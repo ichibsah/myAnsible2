@@ -155,5 +155,5 @@ webserver_static_sites:
     src: "usr/share/nginx/{{ item.name }}/"
     owner: root
     group: root
-    mode: 0755
+    mode: "0755"
   with_items: "{{ webserver_static_sites }}"

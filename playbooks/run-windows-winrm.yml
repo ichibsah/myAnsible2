@@ -6,6 +6,9 @@
   #
   gather_facts: true
 
+  vars_files:
+    - ../ansible-vault.yml
+
   vars:
     ansible_shell_type: cmd
     logpath: C:\ansible-log

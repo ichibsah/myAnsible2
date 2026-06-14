@@ -16,6 +16,9 @@
   # become_method: runas
   # become_user: adminqit
 
+  vars_files:
+    - ../ansible-vault.yml
+
   vars:
     # *ansible_remote_user: adminqit  #ERROR! 'ansible_remote_user' is not a valid attribute for a Play
     # *ansible_ssh_user: adminqit  #ERROR! 'ansible_ssh_user' is not a valid attribute for a Play

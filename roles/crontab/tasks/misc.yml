@@ -7,7 +7,7 @@
 #     dest: "/root/"
 #     owner: root
 #     group: root
-#     mode: 0750
+#     mode: "0750"
 #   when: crntb_activate_cronjobs
 #   tags:
 #     -  #test
@@ -18,7 +18,7 @@
     dest: "/home/"
     owner: ibrahim
     group: ibrahim
-    mode: 0755
+    mode: "0755"
   when: crntb_activate_cronjobs or crntb_actvt_crnjbs_vrnssg
 
 - name: Crontab | cronjob 1min.sh
@@ -71,12 +71,12 @@
 
 - name: Crontab | cronjob crntb_fldr_lst
   copy:
-    src: "files/{{ansible_hostname}}/crontab"
+    src: "files/{{inventory_hostname}}/crontab"
     # src: "files/{{item.fldr}}/crontab"
     dest: "/opt/"
     owner: ibrahim
     group: ibrahim
-    mode: 0744
+    mode: "0744"
   # with_items:
   # "{{ crntb_fldr_lst }}"
   # when: crntb_fldr_lst.0 is defined

@@ -75,7 +75,7 @@
 #     dest: "/home"
 #     owner: ibrahim
 #     group: ibrahim
-#     mode: 0644
+#     mode: "0644"
 #   when: prvs_copy_home
 # - name: Job-1004 | Update root password.
 #   user:
@@ -110,7 +110,7 @@
     state: "{{item.state}}"
     key: "{{ lookup('file', 'files/authorized_key/{{item.key}}') }}"
   loop: "{{ users }}"
-  # when: "{{item.host}}" == 'all' or {{item.host}} == ansible_hostname
+  # when: "{{item.host}}" == 'all' or {{item.host}} == inventory_hostname
   tags:
     -  #test
 #
@@ -142,7 +142,7 @@
     user: "{{item.name}}"
     state: "{{item.state}}"
     key: "{{ lookup('file', 'files/authorized_key/{{item.key}}') }}"
-  # when: ansible_hostname == item.hosts
+  # when: inventory_hostname == item.hosts
   loop: "{{ localusers }}"
   when: addLocalUser
   tags:

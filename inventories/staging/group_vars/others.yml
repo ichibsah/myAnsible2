@@ -1,6 +1,10 @@
+ansible_os_family: "{{ ansible_facts.os_family | default('Debian') }}"
+#
+dmain_pstfx: .sawadogo.xyz
+#
+ansible_become_pass: "{{ ansible_become_pass }}"
 #
 dckr_bs_pth: /opt/docker
-dmain_pstfx: .home.sawadogo.xyz
 #
 paused: false
 #

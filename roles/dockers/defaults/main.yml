@@ -1,5 +1,6 @@
 ---
 # defaults file for dockers
+instl_docker_pckg: no  # Install Docker packages
 #
 dkr_copy_def_files: true  # Copy default docker files to target host
 #

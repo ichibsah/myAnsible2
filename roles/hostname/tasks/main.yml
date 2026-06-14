@@ -33,7 +33,7 @@
     dest: /etc/hostname
     owner: root
     group: root
-    mode: 0644
+    mode: "0644"
   tags:
     - configuration
     - hostname
@@ -46,7 +46,7 @@
     dest: /etc/hosts
     owner: root
     group: root
-    mode: 0644
+    mode: "0644"
   tags:
     - configuration
     - hostname

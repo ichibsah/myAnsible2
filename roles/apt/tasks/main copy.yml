@@ -16,7 +16,7 @@
     dest: /etc/apt/sources.list
     owner: root
     group: root
-    mode: 0644
+    mode: "0644"
   when: apt_reset_source_list and ansible_os_family == 'Ubuntu' and ansible_facts['distribution_version'] is version('20.04', '<')
 #
 # TODO: takes 68.88s to run. needs review
@@ -49,7 +49,7 @@
 #     dest: /etc/apt/apt.conf.d/10general
 #     owner: root
 #     group: root
-#     mode: 0644
+#     mode: "0644"
 #   when: apt_update_gen_conf
 #
 # - name: APT | Make sure the required packages are installed 20.04 and above
@@ -151,7 +151,7 @@
     state: absent
   when: not instl_utl_pckg and not kill_remove
 #
-- name: Job 11 | Install host "{{ansible_hostname}}" specific package using pip
+- name: Job 11 | Install host "{{inventory_hostname}}" specific package using pip
   pip:
     name: "{{pip_host_pckg_lst}}"
     state: present

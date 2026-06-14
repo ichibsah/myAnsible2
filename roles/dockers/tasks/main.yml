@@ -1,13 +1,13 @@
 ---
 # tasks file for dockers
-- name: Job 01 | Copy default docker files to "ansible_hostname"
+- name: Job 01 | Copy default docker files to "inventory_hostname"
   copy:
     src: "files/docker"
     dest: "/opt/"
     owner: ibrahim
     group: ibrahim
-    mode: 0744
-  when: ansible_os_family == 'Debian' and dkr_copy_def_files  # ansible_hostname != 'virthost01' or ansible_hostname != '4a999ff'
+    mode: "0744"
+  when: ansible_os_family | default('Debian') == "Debian" and dkr_copy_def_files  # inventory_hostname != 'virthost01' or inventory_hostname != '4a999ff'
 
 - name: Job 02 | Copy extended docker files to target host
   copy:
@@ -15,17 +15,17 @@
     dest: "/opt/"
     owner: ibrahim
     group: ibrahim
-    mode: 0744
-  when: ansible_os_family == 'Debian' and dkr_copy_etx_files  # ansible_hostname == 'a35a0d3'
+    mode: "0744"
+  when: ansible_os_family | default('Debian') == "Debian" and dkr_copy_etx_files  # inventory_hostname == 'a35a0d3'
 
 - name: Job 03 | Copy Specific docker folder(s) to target host
   copy:
-    src: "files/{{ansible_hostname}}/docker"
+    src: "files/{{ inventory_hostname }}/docker"
     # src: "files/{{item.fldr}}/docker"
     dest: "/opt/"
     owner: ibrahim
     group: ibrahim
-    mode: 0744
+    mode: "0744"
   # with_items:
   # "{{ dckr_fldr_lst }}"
   # when: dckr_fldr_lst.0 is defined
@@ -33,14 +33,14 @@
     -  #test
 #
 # TODO: find a way to imporve the copy - shut it down and use docker deploy
-- name: Job 04 | Copy docker folder(s) to target host that matches "ansible_hostname"
+- name: Job 04 | Copy docker folder(s) to target host that matches {{ inventory_hostname }}"
   copy:
-    src: "files/{{ansible_hostname}}/docker"
+    src: "files/{{ inventory_hostname }}/docker"
     dest: "/opt/"
     owner: ibrahim
     group: ibrahim
-    mode: 0744
-  # when: ansible_hostname != 'virthost01'
+    mode: "0744"
+  # when: inventory_hostname != 'virthost01'
 #
 - name: Job 08 | import task watchtower
   ansible.builtin.import_tasks:

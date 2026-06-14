@@ -10,5 +10,8 @@
   become: true
   become_user: root
 
+  vars_files:
+    - ../ansible-vault.yml
+
   roles:
     - icinga

@@ -7,6 +7,10 @@
   remote_user: ibrahim
   # become: false
   become: true
+
+  vars_files:
+    - ../ansible-vault.yml
+
   roles:
     - ../roles/bashrc
 # - name: BASHRC | Initialisation - LOCALHOST

@@ -5,7 +5,7 @@
 #     iface:  "{{interfaces.iface}}"
 #     backup: true
 #     state: present
-#     mode: 0644
+#     mode: "0644"
 #     owner: root
 #     group: root
 #
@@ -35,14 +35,14 @@
 # when: dsbl_dhcpvsx
 #  #tags: test
 #
-- name: Job 01.7.3 | Copy network folder to target host that matches "ansible_hostname"
+- name: Job 01.7.3 | Copy network folder to target host that matches "inventory_hostname"
   copy:
-    src: "files/{{ansible_hostname}}/etc/network"
+    src: "files/{{inventory_hostname}}/etc/network"
     dest: "/etc/"
     owner: root
     group: root
-    mode: 0644
-  # when: ansible_hostname != 'virthost01'
+    mode: "0644"
+  # when: inventory_hostname != 'virthost01'
   notify:
     - Restart networking
     - Restart docker

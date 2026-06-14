@@ -10,6 +10,9 @@
   become_user: root
   become_method: su
 
+  vars_files:
+    - ../ansible-vault.yml
+
   pre_tasks:
     - name: PRE TASK | Check if ansible is installed
       ansible.builtin.command:

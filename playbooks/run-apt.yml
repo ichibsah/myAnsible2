@@ -7,6 +7,10 @@
   remote_user: ibrahim
   become: true
   become_user: root
+  
+  vars_files:
+    - ../ansible-vault.yml
+
   roles:
     - apt
 # - name: APT | STARTING run-apt.yml - LOCALHOST

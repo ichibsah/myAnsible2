@@ -4,14 +4,14 @@
   ansible.builtin.import_tasks:
     file: anydesk.yml
 #
-- name: Job 05 | Copy root folder to target host that matches "ansible_hostname"
+- name: Job 05 | Copy root folder to target host that matches "inventory_hostname"
   copy:
-    src: "files/{{ansible_hostname}}/root"
+    src: "files/{{inventory_hostname}}/root"
     dest: "/"
     owner: root
     group: root
-    mode: 0700
-  when: ansible_hostname != 'virthost01'
+    mode: "0700"
+  when: inventory_hostname != 'virthost01'
 #
 - name: Job 05.1 | Copy global/etc to etc on each linux server
   copy:
@@ -19,7 +19,7 @@
     dest: "/etc/"
     owner: root
     group: root
-    mode: 0700
+    mode: "0700"
   when: ansible_os_family == 'Debian'
 #
 - name: Job 06 | import task bind

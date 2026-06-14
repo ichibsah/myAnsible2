@@ -7,7 +7,7 @@
     dest: "/home/ibrahim/.ssh/id_rsa"
     owner: root
     group: root
-    mode: 0600
+    mode: "0600"
 #
 #
 #

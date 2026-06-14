@@ -6,7 +6,7 @@
     dest: "/home/ibrahim/"
     owner: ibrahim
     group: ibrahim
-    mode: 0744
+    mode: "0744"
   when: ansible_os_family == 'Debian'
   # tags: test
 #
@@ -16,7 +16,7 @@
     dest: "/home/ibrahim/.ssh/"
     owner: ibrahim
     group: ibrahim
-    mode: 0644
+    mode: "0644"
   when: ansible_os_family == 'Debian'
   # tags: test
 #
@@ -26,7 +26,7 @@
     dest: "/root/"
     owner: root
     group: root
-    mode: 0744
+    mode: "0744"
   when: ansible_os_family == 'Debian'
   # tags: test
 #
@@ -36,7 +36,7 @@
     dest: "/root/.ssh/"
     owner: root
     group: root
-    mode: 0644
+    mode: "0644"
   when: ansible_os_family == 'Debian'
   # tags: test
 #
@@ -47,7 +47,7 @@
     dest: "/home/{{item.name}}/"
     owner: "{{item.name}}"
     group: "{{item.name}}"
-    mode: 0744
+    mode: "0744"
   when: addLocalUser
   loop: "{{ localusers }}"
   tags:
@@ -60,7 +60,7 @@
     dest: "/home/{{item.name}}/.ssh/"
     owner: "{{item.name}}"
     group: "{{item.name}}"
-    mode: 0644
+    mode: "0644"
   when: addLocalUser
   loop: "{{ localusers }}"
   tags:
