@@ -15,5 +15,7 @@ ln -sf "$LOGFILE" "$LOG_DIR/latest-run-dockers.log"
 echo "Logging ansible output to $LOGFILE"
 
 # Run playbook and write both stdout and stderr to the timestamped log (also show on console)
-ansible-playbook -v --limit '!gh-servers !localhost' run-dockers.yml 2>&1 | tee -a "$LOGFILE"
-#ansible-playbook -v run-dockers.yml # works
+# ansible-playbook -v --limit '!gh-servers !localhost' run-dockers.yml 2>&1 | tee -a "$LOGFILE"
+# ansible-playbook -v run-dockers.yml # works
+# ansible-playbook -v -i inventories/staging/hosts.yml playbooks/run-dockers.yml 2>&1 | tee -a "$LOGFILE"
+ansible-playbook -v -i inventories/staging/hosts.yml playbooks/run-main.yml
