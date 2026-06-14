@@ -4,8 +4,8 @@
     site_targets:
       - {
           url: "https://boboconsult.odoo.com/odoo",
-          username: "website@opendotsolutions.com",
-          password: "Qwertzuiop123",
+          username: "bob",
+          password: "password",
           login_path: "/post",
         }
       - {
