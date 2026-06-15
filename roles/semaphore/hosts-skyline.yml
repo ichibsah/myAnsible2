@@ -85,7 +85,7 @@ all:
         ansible_ssh_pass: "{{localhost_become_pass}}"
     #
     firstimeonly:
-      hosts:  #(when user "ibrahim" does not exist, turn off "ansible_ssh_common_args: '-o ProxyCommand="ssh -p 22 -W %h:%p -q ibrahim@212.227.191.142")
+      hosts: #(when user "ibrahim" does not exist, turn off "ansible_ssh_common_args: '-o ProxyCommand="ssh -p 22 -W %h:%p -q ibrahim@212.227.191.142")
         # gh-dev-xl:
         # ansible_ssh_pass: '{{de_suse_xl_become_pass}}'
         # de-1010-xl:
@@ -162,7 +162,7 @@ all:
       hosts:
         de-1010-xl:
     #
-    ds_install:  # here is for .rpm distro
+    ds_install: # here is for .rpm distro
       hosts:
         # gh-dev-xl:
     #

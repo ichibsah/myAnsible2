@@ -18,8 +18,8 @@ This repository contains an **Ansible-based automation setup** for provisioning 
 
 myAnsible/
 ├── inventories/
-│   ├── staging/
-│   └── production/
+│ ├── staging/
+│ └── production/
 ├── playbooks/
 ├── roles/
 ├── group_vars/
@@ -39,7 +39,7 @@ myAnsible/
 
 ### 1. Clone repository
 
-```bash
+````bash
 git clone git@github.com:ichibsah/myAnsible2.git
 cd myAnsible2
 
@@ -54,3 +54,4 @@ https://img.shields.io/badge/Automation-Ansible-red
 https://img.shields.io/badge/status-active-success
 
 ![CI](https://github.com/ichibsah/myAnsible/actions/workflows/ansible.yml/badge.svg)
+````

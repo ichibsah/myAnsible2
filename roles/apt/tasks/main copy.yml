@@ -23,8 +23,8 @@
 - name: Job 02 | Update the apt cache
   apt:
     update_cache: true
-    upgrade: safe  #
-    force_apt_get: true  #
+    upgrade: safe #
+    force_apt_get: true #
     cache_valid_time: "{{apt_cache_valid_time}}"
   when: ansible_os_family == "Debian"
 #
@@ -87,7 +87,7 @@
 #     "{{apt_def_pckg_lst}}"
 #   when: instl_def_pckg
 #
-- name: Job 06 | REMOVE default packages  # REMOVE  #
+- name: Job 06 | REMOVE default packages # REMOVE  #
   ansible.builtin.package:
     autoremove: true
     autoclean: true
@@ -97,8 +97,8 @@
 
 - name: Job 07 | Import Docker-ce GPG Key
   apt_key:
-    url: https://download.docker.com/linux/debian/gpg  # not required. The URL to retrieve key from.
-    state: present  # not required. choices: absent;present. Ensures that the key is present (added) or absent (revoked).
+    url: https://download.docker.com/linux/debian/gpg # not required. The URL to retrieve key from.
+    state: present # not required. choices: absent;present. Ensures that the key is present (added) or absent (revoked).
     validate_certs: no
   when: ansible_os_family == "Debian"
 #
@@ -145,7 +145,7 @@
   when: result is failed
   # tags: test
 #
-- name: Job 10 | REMOVE Utilities Packages  # REMOVE  #
+- name: Job 10 | REMOVE Utilities Packages # REMOVE  #
   ansible.builtin.package:
     name: "{{apt_util_lst}}"
     state: absent
@@ -157,13 +157,13 @@
     state: present
   when: instl_ansbl_pckg
 #
-- name: Job 12 | REMOVE ansible package using pip  # REMOVE  #
+- name: Job 12 | REMOVE ansible package using pip # REMOVE  #
   pip:
     name: "{{pip_ansbl_pckg_lst}}"
     state: absent
   when: not instl_ansbl_pckg and not kill_remove
 
-- name: Job 13 | REMOVE ansible package using apt  # REMOVE  #
+- name: Job 13 | REMOVE ansible package using apt # REMOVE  #
   ansible.builtin.package:
     name: "{{apt_ansbl_pckg_lst}}"
     state: absent
@@ -214,7 +214,7 @@
   with_items: "{{apt_hst_strt_srvc_lst}}"
   when: apt_hst_strt_srvc_lst.0 is defined
 #
-- name: Job 19 | STOP running Services.  # REMOVE  #
+- name: Job 19 | STOP running Services. # REMOVE  #
   systemd:
     name: "{{ item }}"
     state: stopped

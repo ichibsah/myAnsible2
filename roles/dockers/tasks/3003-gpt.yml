@@ -14,7 +14,7 @@
     clone: true
     update: true
     remote: origin
-    key_file: /home/ibrahim/.ssh/id_rsa  # file must exist on remote server
+    key_file: /home/ibrahim/.ssh/id_rsa # file must exist on remote server
     accept_hostkey: true
   check_mode: false
   register: changes_in_git_pull
@@ -25,7 +25,7 @@
     msg: "Directory is failed"
   when: changes_in_git_pull is failed
 
-- name: Run only if the task that registered the "result" variable succeeds  # just the green color
+- name: Run only if the task that registered the "result" variable succeeds # just the green color
   ansible.builtin.debug:
     msg: "Directory is succeeded"
   when: changes_in_git_pull is succeeded

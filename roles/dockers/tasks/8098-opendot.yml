@@ -26,7 +26,7 @@
     msg: "Directory is failed"
   when: changes_in_git_pull is failed
 
-- name: Run only if the task that registered the "result" variable succeeds  # just the green color
+- name: Run only if the task that registered the "result" variable succeeds # just the green color
   ansible.builtin.debug:
     msg: "Directory is succeeded"
   when: changes_in_git_pull is succeeded
@@ -48,7 +48,7 @@
     force_absent: true
     # rm: true  # not required. Remove intermediate containers after build. Please use I(build.rm) instead. This option will be removed in Ansible 2.12.
     # nocache: true  # not required. Do not use cache when building an image. Please use I(build.nocache) instead. This option will be removed in Ansible 2.12.
-    state: absent  # not required. choices: absent;present;build. Make assertions about the state of an image. When C(absent) an image will be removed. Use the force option to un-tag and remove all images matching the provided name. When C(present) check if an image exists using the provided name and tag. If the image is not found or the force option is used, the image will either be pulled, built or loaded, depending on the I(source) option. By default the image will be pulled from Docker Hub, or the registry specified in the image's name. Note that this will change in Ansible 2.12, so to make sure that you are pulling, set I(source) to C(pull). To build the image, provide a I(path) value set to a directory containing a context and Dockerfile, and set I(source) to C(build). To load an image, specify I(load_path) to provide a path to an archive file. To tag an image to a repository, provide a I(repository) path. If the name contains a repository path, it will be pushed. *Note:* C(state=build) is DEPRECATED and will be removed in Ansible 2.11. Specifying C(build) will behave the same as C(present).
+    state: absent # not required. choices: absent;present;build. Make assertions about the state of an image. When C(absent) an image will be removed. Use the force option to un-tag and remove all images matching the provided name. When C(present) check if an image exists using the provided name and tag. If the image is not found or the force option is used, the image will either be pulled, built or loaded, depending on the I(source) option. By default the image will be pulled from Docker Hub, or the registry specified in the image's name. Note that this will change in Ansible 2.12, so to make sure that you are pulling, set I(source) to C(pull). To build the image, provide a I(path) value set to a directory containing a context and Dockerfile, and set I(source) to C(build). To load an image, specify I(load_path) to provide a path to an archive file. To tag an image to a repository, provide a I(repository) path. If the name contains a repository path, it will be pushed. *Note:* C(state=build) is DEPRECATED and will be removed in Ansible 2.11. Specifying C(build) will behave the same as C(present).
   when: changes_in_git_pull is changed
 #
 - name: Job 02 | Deploy opendot - build image

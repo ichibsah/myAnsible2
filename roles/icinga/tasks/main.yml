@@ -8,7 +8,7 @@
   group:
     name: "{{ item }}"
     state: present
-  loop: "{{ groups }}"  # works but 1 array only
+  loop: "{{ groups }}" # works but 1 array only
 #
 - name: Job 02 | creating users and groups
   user:
@@ -67,7 +67,7 @@
     path: /appl/icinga/var/rw
     owner: icingasrv
     group: icingacmd
-    mode: '0777'
+    mode: "0777"
   tags:
     - test
 #

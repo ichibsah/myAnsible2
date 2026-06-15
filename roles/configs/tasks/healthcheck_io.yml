@@ -35,7 +35,7 @@
       ansible.builtin.fail:
         msg: "❌ No healthcheck URLs found for {{ inventory_hostname }}"
       when: healthcheck_io_pause_url | length == 0 or healthcheck_io_resume_url | length == 0 or healthcheck_io_ping_url | length == 0
-      failed_when: true  # Ensures this task registers as a failure (so rescue runs)
+      failed_when: true # Ensures this task registers as a failure (so rescue runs)
 
   #
   # Create checks
@@ -79,12 +79,12 @@
         # job: "/root/ansible.sh > /dev/null 2>&1"
         state: present
         backup: false
-        minute: "*/5"  # Minute when the job should run ( 0-59, *, */2, etc )
-        hour: "*"  # Hour when the job should run ( 0-23, *, */2, etc )
-        day: "*"  # Day of the month the job should run ( 1-31, *, */2, etc )
-        month: "*"  # Month of the year the job should run ( 1-12, *, */2, etc )
-        weekday: "*"  # Day of the week that the job should run ( 0-6 for Sunday-Saturday, *, etc )
-        disabled: false  # If the job should be disabled (commented out) in the crontab. Only has effect if C(state=present).
+        minute: "*/5" # Minute when the job should run ( 0-59, *, */2, etc )
+        hour: "*" # Hour when the job should run ( 0-23, *, */2, etc )
+        day: "*" # Day of the month the job should run ( 1-31, *, */2, etc )
+        month: "*" # Month of the year the job should run ( 1-12, *, */2, etc )
+        weekday: "*" # Day of the week that the job should run ( 0-6 for Sunday-Saturday, *, etc )
+        disabled: false # If the job should be disabled (commented out) in the crontab. Only has effect if C(state=present).
       # when: crntb_activate_cronjobs
 # https://github.com/ansible-collections/community.healthchecksio
 # https://healthchecks.io/docs/resources/

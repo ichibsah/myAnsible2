@@ -85,7 +85,7 @@
             - PLEX_CLAIM={{plex_claim}}
             - ADVERTISE_IP=http://10.0.0.137:32400/
           # user: "${UID}:${GID}"
-          user: "0:0"  # root
+          user: "0:0" # root
           # user: "1354601103:1354600513"  # ibrahim@skyline
           volumes:
             - /opt/docker/plex-32400/database:/config

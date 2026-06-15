@@ -15,7 +15,7 @@
           image: frooodle/s-pdf:latest
           container_name: stirling-pdf_con
           volumes:
-            - "{{dckr_bs_pth}}/stirling-pdf-25568/trainingData:/usr/share/tesseract-ocr/4.00/tessdata"  #Required for extra OCR languages
+            - "{{dckr_bs_pth}}/stirling-pdf-25568/trainingData:/usr/share/tesseract-ocr/4.00/tessdata" #Required for extra OCR languages
             - "{{dckr_bs_pth}}/stirling-pdf-25568/extraConfigs:/configs"
             - "{{dckr_bs_pth}}/stirling-pdf-25568/customFiles:/customFiles/"
           ports:

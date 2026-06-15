@@ -1,15 +1,15 @@
 ---
 # defaults file for dockers
-instl_docker_pckg: no  # Install Docker packages
+instl_docker_pckg: no # Install Docker packages
 #
-dkr_copy_def_files: true  # Copy default docker files to target host
+dkr_copy_def_files: true # Copy default docker files to target host
 #
-dkr_copy_etx_files: no  # Copy extended docker files to target host
+dkr_copy_etx_files: no # Copy extended docker files to target host
 #
-dckr_fldr_lst:  # Docker folder list that will be copied when set in the host variable
+dckr_fldr_lst: # Docker folder list that will be copied when set in the host variable
   - { fldr: "none" }
 #
-dsbl_dhcpvsx: no  # Disable dhcp v6
+dsbl_dhcpvsx: no # Disable dhcp v6
 #
 dckr_dpl_emby_gh: no
 #

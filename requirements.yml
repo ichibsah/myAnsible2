@@ -11,4 +11,4 @@ roles:
   - name: geerlingguy.solr
 #
 collections:
-  - name: community.healthchecksio  # ansible-galaxy collection install community.healthchecksio
+  - name: community.healthchecksio # ansible-galaxy collection install community.healthchecksio

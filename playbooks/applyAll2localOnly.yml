@@ -1,5 +1,4 @@
 ---
-
 - hosts: local
   connection: local
   # ansible_check_mode: false  # https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_checkmode.html

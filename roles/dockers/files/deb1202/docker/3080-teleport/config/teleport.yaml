@@ -26,9 +26,9 @@ auth_service:
 ssh_service:
   enabled: "yes"
   commands:
-  - name: hostname
-    command: [hostname]
-    period: 1m0s
+    - name: hostname
+      command: [hostname]
+      period: 1m0s
 proxy_service:
   enabled: "yes"
   web_listen_addr: 0.0.0.0:443
@@ -41,4 +41,3 @@ proxy_service:
   #   enabled: "yes"
   #   email: your-email-address
   # ---
-

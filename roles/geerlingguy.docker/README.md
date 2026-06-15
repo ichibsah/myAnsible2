@@ -14,16 +14,16 @@ Available variables are listed below, along with default values (see `defaults/m
 
 ```yaml
 # Edition can be one of: 'ce' (Community Edition) or 'ee' (Enterprise Edition).
-docker_edition: 'ce'
+docker_edition: "ce"
 docker_packages:
-    - "docker-{{ docker_edition }}"
-    - "docker-{{ docker_edition }}-cli"
-    - "docker-{{ docker_edition }}-rootless-extras"
+  - "docker-{{ docker_edition }}"
+  - "docker-{{ docker_edition }}-cli"
+  - "docker-{{ docker_edition }}-rootless-extras"
 docker_packages_state: present
 ```
 
-The `docker_edition` should be either `ce` (Community Edition) or `ee` (Enterprise Edition). 
-You can also specify a specific version of Docker to install using the distribution-specific format: 
+The `docker_edition` should be either `ce` (Community Edition) or `ee` (Enterprise Edition).
+You can also specify a specific version of Docker to install using the distribution-specific format:
 Red Hat/CentOS: `docker-{{ docker_edition }}-<VERSION>` (Note: you have to add this to all packages);
 Debian/Ubuntu: `docker-{{ docker_edition }}=<VERSION>` (Note: you have to add this to all packages).
 
@@ -103,7 +103,7 @@ You can change `docker_apt_gpg_key` to a different url if you are behind a firew
 
 ```yaml
 docker_yum_repo_url: "{{ docker_repo_url }}/{{ 'fedora' if ansible_facts.distribution == 'Fedora' else 'rhel' if ansible_facts.distribution == 'RedHat' else 'centos' }}/docker-{{ docker_edition }}.repo"
-docker_yum_repo_enable_test: '0'
+docker_yum_repo_enable_test: "0"
 docker_yum_gpg_key: "{{ docker_repo_url }}/{{ 'fedora' if ansible_facts.distribution == 'Fedora' else 'rhel' if ansible_facts.distribution == 'RedHat' else 'centos' }}/gpg"
 ```
 
@@ -163,7 +163,7 @@ MIT / BSD
 
 ## Sponsors
 
-* [We Manage](https://we-manage.de): Helping start-ups and grown-ups scaling their infrastructure in a sustainable way.
+- [We Manage](https://we-manage.de): Helping start-ups and grown-ups scaling their infrastructure in a sustainable way.
 
 The above sponsor(s) are supporting Jeff Geerling on [GitHub Sponsors](https://github.com/sponsors/geerlingguy). You can sponsor Jeff's work too, to help him continue improving these Ansible open source projects!
 

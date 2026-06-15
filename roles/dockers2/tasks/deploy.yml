@@ -30,7 +30,7 @@
     project_name: "{{ item.key }}"
     recreate: "{{ 'always' if app_image_pull.changed else 'never' }}"
     definition:
-      version: '3.9'
+      version: "3.9"
       services:
         "{{ item.key }}":
           image: "{{ item.value.image }}"

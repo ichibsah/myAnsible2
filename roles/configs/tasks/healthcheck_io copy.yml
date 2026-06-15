@@ -33,7 +33,7 @@
       ansible.builtin.fail:
         msg: "No healthcheck URLs found for {{ inventory_hostname }}"
       when: healthcheck_io_pause_url | length == 0 or healthcheck_io_resume_url | length == 0
-      failed_when: true  # Ensures this task registers as a failure (so rescue runs)
+      failed_when: true # Ensures this task registers as a failure (so rescue runs)
 
   rescue:
     - name: Create check

@@ -20,7 +20,6 @@ therefore wiping out any configurations you have changed:
 
 `docker-compose -p icinga-playground down --volumes && docker-compose pull && docker-compose -p icinga-playground up --build -d`
 
-
 ## Upgrading from v1.0.0 to v1.1.0
 
 **v1.1.0** deploys Icinga Web 2.9.0 and snapshots of Icinga 2, Icinga DB and Icinga DB Web.

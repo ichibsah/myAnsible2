@@ -40,7 +40,7 @@
             - TZ=Europe/Berlin
             # - USERNAME='{{os_username}}'
             # - PASSWORD='{{os_password}}'
-          user: "0:0"  # root
+          user: "0:0" # root
           volumes:
             - /net/mediafiles/mediaFiles/Movies:/movies
             - /net/mediafiles/mediaFiles/TV-Shows:/series

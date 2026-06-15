@@ -115,7 +115,7 @@
 #
 - name: Job 17 | import task rsync
   ansible.builtin.import_tasks:
-    file: rsync.yml  # work in progress. reman to
+    file: rsync.yml # work in progress. reman to
   when: start_rsync and paused
   tags:
     # - test

@@ -24,7 +24,7 @@
   loop: "{{apt_anydsk_pckg_lst}}"
   when: instl_anydesk
 #
-- name: Job 03(REMOVE) | Install AnyDesk Package  # REMOVE
+- name: Job 03(REMOVE) | Install AnyDesk Package # REMOVE
   apt:
     pkg: "{{item}}"
     state: absent

@@ -1,19 +1,19 @@
 ---
 # defaults file for configs
-instl_anydesk: no  # Install AnyDesk
+instl_anydesk: no # Install AnyDesk
 #
-dsbl_dhcpvsx: no  # Disable dhcp v6
-dsbl_dhcpvsx_regx:  # text that should change goes here eg. INTERFACESv4='ens18'
+dsbl_dhcpvsx: no # Disable dhcp v6
+dsbl_dhcpvsx_regx: # text that should change goes here eg. INTERFACESv4='ens18'
 #
-instl_dhcp_srvc: no  # Install DHCP Service
+instl_dhcp_srvc: no # Install DHCP Service
 #
-copy_iptables: no  # Copy iptables to /root folder
+copy_iptables: no # Copy iptables to /root folder
 #
-instl_grafana: no  # Install Grafana agent Service
+instl_grafana: no # Install Grafana agent Service
 #
-instl_swrm_mstr: no  # Install Docker swarm Service
+instl_swrm_mstr: no # Install Docker swarm Service
 #
-instl_swrm_node: no  # Install Docker swarm Service
+instl_swrm_node: no # Install Docker swarm Service
 #
 strt_mygw_at_boot: no
 mygw_flnm: "/root/gw-gh.sh"
@@ -21,23 +21,23 @@ mygw_flnm: "/root/gw-gh.sh"
 strt_myiptbls_at_boot: no
 myiptbls_flnm: "/root/myiptable.sh"
 #
-upld_fail2bn_cfg: no  # upload fail2ban config file
+upld_fail2bn_cfg: no # upload fail2ban config file
 #
-start_rsync: no  # rsync files
+start_rsync: no # rsync files
 #
-servercleanup: no  # server clean up
+servercleanup: no # server clean up
 #
-backup_home: no  # backup home folder from server
+backup_home: no # backup home folder from server
 #
-odoo_keep_alive: no  # Install Odoo keep alive cronjob
+odoo_keep_alive: no # Install Odoo keep alive cronjob
 #
-docker3: false  # Install Docker
+docker3: false # Install Docker
 #
-teams: no  # Install teams-for-linux
-teams_for_linux_channel: stable  # or "beta"
+teams: no # Install teams-for-linux
+teams_for_linux_channel: stable # or "beta"
 #
 #
-addLocalUser: no  # add a local user to specific host
+addLocalUser: no # add a local user to specific host
 #
 start_prtd: no
 prtd:
@@ -50,24 +50,24 @@ ipsets:
   - name: swarm_nodes
     type: "hash:net"
     set:
-      - 212.227.166.233  # deb1202.imsawadogo.com
-      - 212.227.151.179  # de-jump.imsawadogo.com
-      - 217.160.100.194  # d86df44.imsawadogo.com
-      - 217.160.144.31  # 112e275.imsawadogo.com
+      - 212.227.166.233 # deb1202.imsawadogo.com
+      - 212.227.151.179 # de-jump.imsawadogo.com
+      - 217.160.100.194 # d86df44.imsawadogo.com
+      - 217.160.144.31 # 112e275.imsawadogo.com
   - name: swarm_master
     type: "hash:net"
     set:
       - 217.160.100.209
 #
 # Grafana vars:
-grafana_cloud_api_key: glc_eyJvIjoiNTkxMjk3IiwibiI6InN0YWNrLTMwNDAwNi1pbnRlZ3JhdGlvbi1pb25vcy1pb25vcyIsImsiOiJmVnUydE93NzZHODM5SG9nN0RsOVE0TjkiLCJtIjp7InIiOiJldSJ9fQ==  # Example - glc_eyJrIjoiYjI3NjI5MGQxZTcyOTIxYTc0MDgzMGVhNDhlODNhYzA5OTk2Y2U5YiIsIm4iOiJhbnNpYmxldGVzdCIsImlkIjo2NTI5
-metrics_username: 308074  # Example - 825019
-logs_username: 153007  # Example - 411478
-prometheus_url: https://prometheus-prod-01-eu-west-0.grafana.net/api/prom/push  # Example - https://prometheus-us-central1.grafana.net/api/prom/push
-loki_url: https://logs-prod-eu-west-0.grafana.net/loki/api/v1/push  # Example - https://logs-prod-017.grafana.net/loki/api/v1/push
+grafana_cloud_api_key: glc_eyJvIjoiNTkxMjk3IiwibiI6InN0YWNrLTMwNDAwNi1pbnRlZ3JhdGlvbi1pb25vcy1pb25vcyIsImsiOiJmVnUydE93NzZHODM5SG9nN0RsOVE0TjkiLCJtIjp7InIiOiJldSJ9fQ== # Example - glc_eyJrIjoiYjI3NjI5MGQxZTcyOTIxYTc0MDgzMGVhNDhlODNhYzA5OTk2Y2U5YiIsIm4iOiJhbnNpYmxldGVzdCIsImlkIjo2NTI5
+metrics_username: 308074 # Example - 825019
+logs_username: 153007 # Example - 411478
+prometheus_url: https://prometheus-prod-01-eu-west-0.grafana.net/api/prom/push # Example - https://prometheus-us-central1.grafana.net/api/prom/push
+loki_url: https://logs-prod-eu-west-0.grafana.net/loki/api/v1/push # Example - https://logs-prod-017.grafana.net/loki/api/v1/push
 
 # URL monitor vars:  ####
-getflix_cronjob: no  # Install getflix cronjob
+getflix_cronjob: no # Install getflix cronjob
 # roles/url_monitor/defaults/main.yml
 url_monitor_target_url: "https://gfx.globalapi.net/api/helper/ip-address/6b30e905-ee04-45c6-9cdb-be81b6ed5349"
 # url_monitor_target_url: "https://httpbin.org/status/500"
@@ -83,7 +83,7 @@ url_monitor_script_mode: "0750"
 url_monitor_log_dir_mode: "0755"
 
 # HTTP behavior
-url_monitor_http_timeout: 30  # seconds
+url_monitor_http_timeout: 30 # seconds
 
 # Alerts
 url_monitor_enable_teams_alerts: true
@@ -91,7 +91,7 @@ url_monitor_enable_teams_alerts: true
 
 # Cron schedule
 # If non-empty, uses @hourly, @daily, etc. Otherwise falls back to explicit fields below
-url_monitor_cron_special_time: "hourly"  # set "" to use explicit cron fields
+url_monitor_cron_special_time: "hourly" # set "" to use explicit cron fields
 url_monitor_cron_minute: "0"
 url_monitor_cron_hour: "*"
 url_monitor_cron_day: "*"
@@ -106,7 +106,7 @@ url_monitor_enable_lock: false
 url_monitor_lock_file: "/var/lock/url_check.lock"
 #
 # vscode vars:
-vscode: no  # Install Visual Studio Code
+vscode: no # Install Visual Studio Code
 vscode_package: code
 vscode_repo_url: https://packages.microsoft.com/repos/code
 vscode_keyring_path: /usr/share/keyrings/microsoft.gpg
@@ -115,7 +115,7 @@ vscode_architectures: amd64,arm64,armhf
 network_interfaces_check: false
 #
 # Fail2ban vars:
-fail2ban_whitelist: no  # Enable Fail2Ban whitelist configuration
+fail2ban_whitelist: no # Enable Fail2Ban whitelist configuration
 # URL used to detect the public IP of the Ansible control machine
 public_ip_service_url: https://api.ipify.org
 # Fail2Ban whitelist configuration file
@@ -143,10 +143,10 @@ fail2ban_default_jails:
   - recidive
   - ssh
 #
-xrdp: false  # Install and configure xrdp
+xrdp: false # Install and configure xrdp
 #
 # gnomerdp
-gnomerdp: false  # Install and configure GNOME Remote Desktop (RDP)
+gnomerdp: false # Install and configure GNOME Remote Desktop (RDP)
 gnome_rdp_port: 3389
 gnome_rdp_cert_path: "/home/{{ gnome_rdp_user }}/.ssh"
 gnome_rdp_system: false

@@ -1,5 +1,5 @@
 ---
-version: '3.5'
+version: "3.5"
 networks:
   frontend:
     external: true
@@ -30,6 +30,5 @@ services:
     networks:
       - frontend
     restart: unless-stopped
-
 
     # $ docker network create frontend || true

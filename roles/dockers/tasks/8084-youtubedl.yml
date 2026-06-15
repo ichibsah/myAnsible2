@@ -34,7 +34,7 @@
   community.docker.docker_container_info:
     name: "{{ ytdl_container_name }}"
   register: ytdl_container_info
-  failed_when: false  # in case it doesn't exist
+  failed_when: false # in case it doesn't exist
 
 # 3) If a new image was pulled and the container exists, stop & remove it
 - name: "Stop and remove existing container when image updated"

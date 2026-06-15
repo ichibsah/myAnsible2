@@ -7,7 +7,7 @@
     owner: ibrahim
     group: ibrahim
     mode: "0744"
-  when: ansible_os_family | default('Debian') == "Debian" and dkr_copy_def_files  # inventory_hostname != 'virthost01' or inventory_hostname != '4a999ff'
+  when: ansible_os_family | default('Debian') == "Debian" and dkr_copy_def_files # inventory_hostname != 'virthost01' or inventory_hostname != '4a999ff'
 
 - name: Job 02 | Copy extended docker files to target host
   copy:
@@ -16,7 +16,7 @@
     owner: ibrahim
     group: ibrahim
     mode: "0744"
-  when: ansible_os_family | default('Debian') == "Debian" and dkr_copy_etx_files  # inventory_hostname == 'a35a0d3'
+  when: ansible_os_family | default('Debian') == "Debian" and dkr_copy_etx_files # inventory_hostname == 'a35a0d3'
 
 - name: Job 03 | Copy Specific docker folder(s) to target host
   copy:

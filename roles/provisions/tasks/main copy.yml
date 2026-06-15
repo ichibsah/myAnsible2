@@ -21,7 +21,7 @@
   group:
     name: "{{ item }}"
     state: present
-  loop: "{{ users[1].groups }}"  # works but 1 array only
+  loop: "{{ users[1].groups }}" # works but 1 array only
   # msg: "{{ bands.keys() }}"
   # https://www.redhat.com/sysadmin/ansible-lists-dictionaries-yaml
   # tags: test
@@ -92,7 +92,7 @@
     name: "{{item.name}}"
     update_password: always
     shell: "{{item.shell}}"
-    groups: "{{item.groups}}"  #"{{lookup('item', 'groups')}}"
+    groups: "{{item.groups}}" #"{{lookup('item', 'groups')}}"
     password: "{{ localhost_become_pass | password_hash('sha512') }}"
     append: "{{item.append}}"
     create_home: true
@@ -117,7 +117,7 @@
 - name: Job 05 | creating LOCAL users and groups
   user:
     name: "{{item.name}}"
-    update_password: on_create  #always
+    update_password: on_create #always
     shell: "{{item.shell}}"
     # group: "{{item.group}}"
     groups: "{{item.groups}}"

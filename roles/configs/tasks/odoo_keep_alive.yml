@@ -15,8 +15,8 @@
           login_path: "/post",
         }
     # site_targets: "{{ site_targets | default([]) }}"
-    path_prefix: "/odoo"  # your instance prefix
-    login_path: "/web/login"  # Odoo's login endpoint
+    path_prefix: "/odoo" # your instance prefix
+    login_path: "/web/login" # Odoo's login endpoint
     validate_certs: true
     timeout_s: 15
   loop: "{{ site_targets }}"
@@ -56,7 +56,7 @@
           # db: "{{ item.db | default(omit) }}"
         validate_certs: "{{ validate_certs }}"
         timeout: "{{ timeout_s }}"
-        follow_redirects: none  # see 302 directly
+        follow_redirects: none # see 302 directly
         use_cookies: true
       register: login_post
       changed_when: false
