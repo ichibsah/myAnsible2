@@ -35,3 +35,12 @@ git push
 # git remote add origin git@github.com:ichibsah/myAnsible.git
 # git branch -M main
 # git push -u origin main
+#
+# previous push (one before the latest)
+#git reset --hard HEAD~1
+#git push --force
+#
+# Safer alternative (no history rewrite)
+#git revert HEAD
+#git push
+#
