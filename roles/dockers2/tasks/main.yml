@@ -1,6 +1,19 @@
+# roles/docker_compose/tasks/main.yml
+
+---
+- name: Load all app definitions
+  include_vars:
+    dir: "{{ role_path }}/defaults"
+    files_matching: ".*\\.yml"
+
+- name: Show loaded apps
+  debug:
+    var: media_apps
+
 - name: Deploy apps
   include_tasks: deploy.yml
   loop: "{{ media_apps | dict2items }}"
   loop_control:
     label: "{{ item.key }}"
   when: item.value.enabled
+  
